@@ -1,0 +1,231 @@
+[
+  {
+    "slug": "casa-infinita",
+    "title": "Casa Infinita",
+    "location": "Barcelona",
+    "cover": "/media/image2.jpeg",
+    "photos": [
+      "/media/image2.jpeg",
+      "/media/image3.jpeg",
+      "/media/image6.jpeg"
+    ],
+    "statement": "Infinita no habita el paisaje: se funde en él, dibujando en la pendiente una luz que no se acaba.",
+    "sections": [
+      {
+        "title": "Diálogo con la topografía",
+        "text": "La normativa urbanística, muy restrictiva en cuanto a movimientos de tierra y creación de desniveles, fue el punto de partida de la propuesta. De la necesidad de resolver este condicionante surgió la idea fundamental del proyecto: generar una gran plataforma continua en la planta intermedia, donde se ubica la zona de día, fundida con un jardín elevado y una piscina infinita que se extiende sobre la cubierta del nivel inferior."
+      },
+      {
+        "title": "Tectónica y luz",
+        "text": "Un gran porche cubierto, bajo el primer volumen, prolonga este plano habitable, diluyendo los límites entre interior y exterior. Desde cada rincón, los puntos de fuga llevan la mirada más allá, hacia un horizonte sin fin."
+      }
+    ],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  },
+  {
+    "slug": "fuyu",
+    "title": "Fuyu",
+    "location": "Barcelona",
+    "cover": "/media/image3.jpeg",
+    "photos": [
+      "/media/image3.jpeg",
+      "/media/image6.jpeg",
+      "/media/image2.jpeg"
+    ],
+    "statement": "La búsqueda del silencio a través de una masa ciega que protege microuniversos de patios interiores.",
+    "sections": [
+      {
+        "title": "La fachada como refugio",
+        "text": "En un entorno urbano saturado, FUYU actúa como un monolito introspectivo. La fachada carece de aberturas hacia la calle, concentrando la vida hacia el núcleo."
+      },
+      {
+        "title": "Naturaleza interior",
+        "text": "El volumen se perfora estratégicamente creando patios ajardinados. Paneles correderos permiten transformar las estancias diáfanas en espacios integrados con la vegetación."
+      }
+    ],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  },
+  {
+    "slug": "passacaglia",
+    "title": "Passacaglia",
+    "location": "Barcelona",
+    "cover": "/media/image6.jpeg",
+    "photos": [
+      "/media/image6.jpeg",
+      "/media/image2.jpeg",
+      "/media/image3.jpeg"
+    ],
+    "statement": "Passacaglia es una coreografía arquitectónica, donde la luz, los volúmenes y el espacio dialogan con una cadencia casi musical.",
+    "sections": [
+      {
+        "title": "Ritmo y paisaje",
+        "text": "Su diseño sigue una cadencia precisa de llenos y vacíos, generando una composición arquitectónica donde la luz y la sombra alternan en armonía. Repetición y variación rigen la experiencia espacial."
+      },
+      {
+        "title": "Materia y profundidad",
+        "text": "Un gran porche prolonga el plano habitable, diluyendo los límites entre interior y exterior. La arquitectura conduce la mirada hacia el paisaje."
+      }
+    ],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  },
+  {
+    "slug": "vila-clara",
+    "title": "Vila Clara",
+    "location": "Canyelles",
+    "cover": "/media/image2.jpeg",
+    "photos": [
+      "/media/image2.jpeg",
+      "/media/image3.jpeg",
+      "/media/image6.jpeg"
+    ],
+    "statement": "Vilaclara es una vivienda donde el vacío se convierte en protagonista: un espacio que no se construye, pero que da sentido a todo lo demás.",
+    "sections": [
+      {
+        "title": "El vacío central",
+        "text": "La vivienda se organiza alrededor de una escalera central. Más que un elemento de circulación, se convierte en un vacío vertical que introduce luz natural en el corazón de la casa."
+      },
+      {
+        "title": "Luz cenital",
+        "text": "La luz conecta las distintas plantas y aporta profundidad a los espacios interiores, convirtiéndose en un material más del proyecto."
+      }
+    ],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  },
+  {
+    "slug": "claro-de-luz",
+    "title": "Claro De Luz",
+    "location": "Barcelona",
+    "cover": "/media/image3.jpeg",
+    "photos": [
+      "/media/image3.jpeg",
+      "/media/image6.jpeg",
+      "/media/image2.jpeg"
+    ],
+    "statement": "Casa Claro de Luz es un refugio sereno, una vivienda que se repliega para que la luz y la calma ocupen el centro.",
+    "sections": [
+      {
+        "title": "Un jardín interior",
+        "text": "Su forma en L abraza un jardín íntimo y acogedor, un claro vegetal donde la vida cotidiana florece entre sombras suaves, reflejos y vegetación."
+      },
+      {
+        "title": "Atmósfera",
+        "text": "Cada estancia busca la luz de forma matizada, creando espacios de contemplación y serenidad."
+      }
+    ],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  },
+  {
+    "slug": "brisa-de-luz",
+    "title": "Brisa De Luz",
+    "location": "Barcelona",
+    "cover": "/media/image6.jpeg",
+    "photos": [
+      "/media/image6.jpeg",
+      "/media/image2.jpeg",
+      "/media/image3.jpeg"
+    ],
+    "statement": "",
+    "sections": [],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  },
+  {
+    "slug": "brisa-del-alba",
+    "title": "Brisa Del Alba",
+    "location": "Barcelona",
+    "cover": "/media/image2.jpeg",
+    "photos": [
+      "/media/image2.jpeg",
+      "/media/image3.jpeg",
+      "/media/image6.jpeg"
+    ],
+    "statement": "",
+    "sections": [],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  },
+  {
+    "slug": "claroscuro",
+    "title": "Claroscuro",
+    "location": "Barcelona",
+    "cover": "/media/image3.jpeg",
+    "photos": [
+      "/media/image3.jpeg",
+      "/media/image6.jpeg",
+      "/media/image2.jpeg"
+    ],
+    "statement": "",
+    "sections": [],
+    "steps": [
+      {
+        "src": "/media/infinita-esbozo.webp",
+        "label": "Volumen y paisaje"
+      },
+      {
+        "src": "/media/claro-de-luz-esbozo.webp",
+        "label": "Luz y espacio"
+      }
+    ]
+  }
+]

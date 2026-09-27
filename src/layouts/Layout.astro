@@ -1,23 +1,85 @@
+---
+import '../styles/global.css';
+interface Props { title: string; dark?: boolean; intro?: boolean; }
+const { title, dark = false, intro = false } = Astro.props;
+const path = Astro.url.pathname;
+---
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="OWN Architecture. Arquitectura residencial desde la luz, la materia, la proporción y el lugar." />
+    <title>{title}</title>
+  </head>
+  <body class:list={[{ 'theme-dark': dark, 'is-intro': intro }]}>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    {!intro && <header class="site-header">
+      <a class="wordmark" href="/seleccion/" aria-label="OWN, menú principal">OWN<span>ARCHITECTURE</span></a>
+      <nav aria-label="Navegación principal" class="flex items-center gap-5 sm:gap-9">
+        <a href="/proyectos/" aria-current={path.startsWith('/proyectos') ? 'page' : undefined}>Proyectos</a>
+        <a href="/estudio/" aria-current={path.startsWith('/estudio') ? 'page' : undefined}>Estudio</a>
+        <a href="/estudio/#contacto">Contacto</a>
+      </nav>
+    </header>}
+    <main id="contenido"><slot /></main>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      gsap.registerPlugin(ScrollTrigger);
+      const mm = gsap.matchMedia();
+      mm.add('(pointer: fine)', () => {
+        const dot = document.querySelector<HTMLElement>('.cursor-dot')!;
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const moveX = gsap.quickTo(dot, 'x', { duration: reduced ? 0 : .12, ease: 'power3.out' });
+        const moveY = gsap.quickTo(dot, 'y', { duration: reduced ? 0 : .12, ease: 'power3.out' });
+        let visible = false;
+        let currentScale = 1;
+        let idleTimer: ReturnType<typeof setTimeout> | undefined;
+        const setSize = (scale: number, duration = .25) => {
+          if (scale === currentScale) return;
+          currentScale = scale;
+          gsap.to(dot, { scaleX: scale, scaleY: scale, duration: reduced ? 0 : duration, ease: 'power2.out', overwrite: 'auto' });
+        };
+        const resize = (target: Element) => {
+          const onDiagram = !!target.closest('.diagram');
+          const onPhoto = !onDiagram && !!target.closest('img, .photo-frame, .project-swatch, .studio-image');
+          dot.classList.toggle('on-photo', onPhoto);
+          dot.classList.toggle('on-diagram', onDiagram);
+          const large = target.closest('img, .photo-frame, .project-swatch, .studio-image, .diagram-stage, .split-pane');
+          const selectable = target.closest('a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])');
+          const scale = onDiagram ? 5 : large || selectable ? 9 : 1;
+          setSize(scale);
+          clearTimeout(idleTimer);
+          if (onPhoto) idleTimer = setTimeout(() => setSize(3, .45), 600);
+          else if (onDiagram) idleTimer = setTimeout(() => setSize(1, .45), 600);
+        };
+        const over = (event: PointerEvent) => resize(event.target as Element);
+        const move = (event: PointerEvent) => {
+          const target = event.target as HTMLElement;
+          if (!visible) {
+            gsap.set(dot, { x: event.clientX, y: event.clientY, autoAlpha: 1 });
+            visible = true;
+          }
+          moveX(event.clientX);
+          moveY(event.clientY);
+          resize(target);
+        };
+        const hide = () => { clearTimeout(idleTimer); visible = false; gsap.set(dot, { autoAlpha: 0 }); };
+        window.addEventListener('pointermove', move);
+        window.addEventListener('pointerover', over);
+        document.addEventListener('pointerleave', hide);
+        return () => { clearTimeout(idleTimer); window.removeEventListener('pointermove', move); window.removeEventListener('pointerover', over); document.removeEventListener('pointerleave', hide); gsap.killTweensOf(dot); };
+      });
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach(el => {
+          // Already-visible content must not jump back to a hidden start after first paint.
+          if (el.getBoundingClientRect().top < window.innerHeight) return;
+          gsap.from(el, { y: 36, autoAlpha: 0, duration: .85, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 94%', once: true } });
+        });
+      });
+      window.addEventListener('pagehide', () => mm.revert(), { once: true });
+    </script>
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

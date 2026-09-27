@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Estudio | OWN Architecture" dark>
+  <section class="studio-page page-padding">
+    <div class="section-heading" data-reveal><h1>ESTUDIO</h1><span class="eyebrow">Filosofía y método</span></div>
+    <p class="studio-statement" data-reveal>Concebimos la arquitectura como una respuesta esencial al lugar, la materia y la luz. Buscamos la belleza en la honestidad de la forma y la precisión de cada detalle.</p>
+    <div class="studio-columns grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+      <div data-reveal><h2 class="eyebrow">01 / Filosofía</h2><p>En OWN abordamos cada proyecto desde su relación con el territorio, el clima, la orientación y la forma de habitar.</p><p>Buscamos espacios serenos y atemporales en los que arquitectura, paisaje y materia formen parte de una misma experiencia.</p></div>
+      <div data-reveal><h2 class="eyebrow">02 / Método</h2><p>Entendemos la arquitectura como una disciplina integral. Desde los primeros croquis hasta la ejecución de obra, trabajamos todas las escalas como parte de una misma idea.</p><p>Luz, proporción, estructura, materialidad y detalle se desarrollan simultáneamente.</p></div>
+    </div>
+    <figure class="studio-image" data-reveal><img src="/media/image6.jpeg" alt="Relación entre arquitectura, agua y jardín" width="1500" height="999" loading="lazy" /></figure>
+  </section>
+  <Footer />
+</Layout>

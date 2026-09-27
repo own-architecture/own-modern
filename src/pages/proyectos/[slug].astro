@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectDetail from '../../components/ProjectDetail';
+import Footer from '../../components/Footer.astro';
+import { projects } from '../../data/projects';
+export function getStaticPaths() {
+  return projects.map((project, i) => ({ params: { slug: project.slug }, props: { project, next: projects[(i + 1) % projects.length] } }));
+}
+const { project, next } = Astro.props;
+---
+<Layout title={`${project.title} | OWN Architecture`}>
+  <ProjectDetail project={project} next={next} client:load />
+  <Footer />
+</Layout>
