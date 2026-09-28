@@ -15,7 +15,7 @@ const path = Astro.url.pathname;
   <body class:list={[{ 'theme-dark': dark, 'is-intro': intro }]}>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     {!intro && <header class="site-header">
-      <a class="font-bold md:text-4xl text-xl" href="/seleccion/" aria-label="OWN, menú principal">OWN <span class="font-light">ARCHITECTURE</span></a>
+      <a class="font-bold md:text-4xl sm:text-xl text-base" href="/seleccion/" aria-label="OWN, menú principal">OWN <span class="font-light">ARCHITECTURE</span></a>
       <nav aria-label="Navegación principal" class="flex items-center gap-5 sm:gap-9">
         <a href="/proyectos/" aria-current={path.startsWith('/proyectos') ? 'page' : undefined}>Proyectos</a>
         <a href="/estudio/" aria-current={path.startsWith('/estudio') ? 'page' : undefined}>Estudio</a>
