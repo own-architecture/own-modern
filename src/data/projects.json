@@ -3,11 +3,36 @@
     "slug": "casa-infinita",
     "title": "Casa Infinita",
     "location": "Barcelona",
-    "cover": "/media/image2.jpeg",
+    "cover": "casa-infinita/image.webp",
     "photos": [
-      "/media/image2.jpeg",
-      "/media/image3.jpeg",
-      "/media/image6.jpeg"
+      {
+        "src": "casa-infinita/image.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-infinita/image1.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-infinita/image2.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-infinita/image3.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-infinita/image4.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-infinita/image5.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-infinita/image6.webp",
+        "label": ""
+      }
     ],
     "statement": "Infinita no habita el paisaje: se funde en él, dibujando en la pendiente una luz que no se acaba.",
     "sections": [
@@ -22,12 +47,8 @@
     ],
     "steps": [
       {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
-      },
-      {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
+        "src": "casa-infinita/es1.webp",
+        "label": "Esquema del proyecto"
       }
     ]
   },
@@ -35,11 +56,36 @@
     "slug": "fuyu",
     "title": "Fuyu",
     "location": "Barcelona",
-    "cover": "/media/image3.jpeg",
+    "cover": "fuyu/image.webp",
     "photos": [
-      "/media/image3.jpeg",
-      "/media/image6.jpeg",
-      "/media/image2.jpeg"
+      {
+        "src": "fuyu/image.webp",
+        "label": ""
+      },
+      {
+        "src": "fuyu/image1.webp",
+        "label": ""
+      },
+      {
+        "src": "fuyu/image2.webp",
+        "label": ""
+      },
+      {
+        "src": "fuyu/image3.webp",
+        "label": ""
+      },
+      {
+        "src": "fuyu/image4.webp",
+        "label": ""
+      },
+      {
+        "src": "fuyu/image7.webp",
+        "label": ""
+      },
+      {
+        "src": "fuyu/chatgpt-image-7-sept-2026-11-47-54-a-m.webp",
+        "label": ""
+      }
     ],
     "statement": "La búsqueda del silencio a través de una masa ciega que protege microuniversos de patios interiores.",
     "sections": [
@@ -54,12 +100,8 @@
     ],
     "steps": [
       {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
-      },
-      {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
+        "src": "fuyu/esquemas.webp",
+        "label": "Esquema del proyecto"
       }
     ]
   },
@@ -67,43 +109,70 @@
     "slug": "passacaglia",
     "title": "Passacaglia",
     "location": "Barcelona",
-    "cover": "/media/image6.jpeg",
+    "cover": "passacaglia/image.webp",
     "photos": [
-      "/media/image6.jpeg",
-      "/media/image2.jpeg",
-      "/media/image3.jpeg"
-    ],
-    "statement": "Passacaglia es una coreografía arquitectónica, donde la luz, los volúmenes y el espacio dialogan con una cadencia casi musical.",
-    "sections": [
       {
-        "title": "Ritmo y paisaje",
-        "text": "Su diseño sigue una cadencia precisa de llenos y vacíos, generando una composición arquitectónica donde la luz y la sombra alternan en armonía. Repetición y variación rigen la experiencia espacial."
+        "src": "passacaglia/image.webp",
+        "label": ""
       },
       {
-        "title": "Materia y profundidad",
-        "text": "Un gran porche prolonga el plano habitable, diluyendo los límites entre interior y exterior. La arquitectura conduce la mirada hacia el paisaje."
+        "src": "passacaglia/image3.webp",
+        "label": ""
+      },
+      {
+        "src": "passacaglia/image8.webp",
+        "label": ""
+      },
+      {
+        "src": "passacaglia/image9.webp",
+        "label": ""
+      }
+    ],
+    "statement": "Casa Passacaglia se organiza a partir de un ritmo claro de espacios llenos y vacíos, donde la luz y la sombra se alternan para definir la atmósfera de cada rincón. Su diseño parte de una cadencia de volúmenes en fachada que se desplazan de forma secuencial, conectando el interior con el paisaje exterior a través de grandes ventanales y umbrales intermedios.",
+    "sections": [
+      {
+        "title": "Luz, distribución y continuidad",
+        "text": "La disposición de estos volúmenes permite captar, filtrar y modelar la luz natural a lo largo del día, creando un ambiente dinámico y cambiante que realza la materialidad de la casa. En el interior, la distribución optimiza el uso del espacio eliminando los pasillos: las propias estancias articulan la circulación y se encadenan de manera fluida, aprovechando al máximo la superficie disponible. Los espacios comunes y privados mantienen así una continuidad visual que equilibra la apertura hacia el jardín con la privacidad de las zonas más íntimas."
+      },
+      {
+        "title": "Orden y paisaje",
+        "text": "Con una composición geométrica cuidada pero exenta de artificios, Casa Passacaglia propone un orden claro y funcional, donde arquitectura, luz y distribución trabajan conjuntamente para ofrecer un hogar cómodo, luminoso y profundamente conectado con la tranquilidad del entorno."
       }
     ],
     "steps": [
       {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
-      },
-      {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
+        "src": "passacaglia/esq1.webp",
+        "label": "Esquema del proyecto"
       }
-    ]
+    ],
+    "sourceDocument": "images/PASSACAGLIA/casa passacaglia.pdf"
   },
   {
     "slug": "vila-clara",
     "title": "Vila Clara",
     "location": "Canyelles",
-    "cover": "/media/image2.jpeg",
+    "cover": "vila-clara/image.webp",
     "photos": [
-      "/media/image2.jpeg",
-      "/media/image3.jpeg",
-      "/media/image6.jpeg"
+      {
+        "src": "vila-clara/image.webp",
+        "label": ""
+      },
+      {
+        "src": "vila-clara/image1.webp",
+        "label": ""
+      },
+      {
+        "src": "vila-clara/image2.webp",
+        "label": ""
+      },
+      {
+        "src": "vila-clara/image4.webp",
+        "label": ""
+      },
+      {
+        "src": "vila-clara/image5.webp",
+        "label": ""
+      }
     ],
     "statement": "Vilaclara es una vivienda donde el vacío se convierte en protagonista: un espacio que no se construye, pero que da sentido a todo lo demás.",
     "sections": [
@@ -116,116 +185,321 @@
         "text": "La luz conecta las distintas plantas y aporta profundidad a los espacios interiores, convirtiéndose en un material más del proyecto."
       }
     ],
-    "steps": [
-      {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
-      },
-      {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
-      }
-    ]
+    "steps": []
   },
   {
     "slug": "claro-de-luz",
-    "title": "Claro De Luz",
-    "location": "Barcelona",
-    "cover": "/media/image3.jpeg",
+    "title": "Claro de Luz",
+    "location": "Besalú",
+    "cover": "claro-de-luz/image5.webp",
     "photos": [
-      "/media/image3.jpeg",
-      "/media/image6.jpeg",
-      "/media/image2.jpeg"
-    ],
-    "statement": "Casa Claro de Luz es un refugio sereno, una vivienda que se repliega para que la luz y la calma ocupen el centro.",
-    "sections": [
       {
-        "title": "Un jardín interior",
-        "text": "Su forma en L abraza un jardín íntimo y acogedor, un claro vegetal donde la vida cotidiana florece entre sombras suaves, reflejos y vegetación."
+        "src": "claro-de-luz/image5.webp",
+        "label": ""
       },
       {
-        "title": "Atmósfera",
-        "text": "Cada estancia busca la luz de forma matizada, creando espacios de contemplación y serenidad."
+        "src": "claro-de-luz/image.webp",
+        "label": ""
+      },
+      {
+        "src": "claro-de-luz/image1.webp",
+        "label": ""
+      },
+      {
+        "src": "claro-de-luz/image2.webp",
+        "label": ""
+      },
+      {
+        "src": "claro-de-luz/image3.webp",
+        "label": ""
+      },
+      {
+        "src": "claro-de-luz/image4.webp",
+        "label": ""
+      },
+      {
+        "src": "claro-de-luz/image6.webp",
+        "label": ""
+      }
+    ],
+    "statement": "Casa Claro de Luz se sitúa en Besalú y se organiza a partir de una planta en L que protege un jardín interior y lo convierte en el centro de la vivienda. Entre el porche, la vegetación y la lámina de agua se crea un espacio exterior íntimo y tranquilo, alrededor del cual se desarrolla la vida de la casa.",
+    "sections": [
+      {
+        "title": "Privacidad y apertura",
+        "text": "La vivienda busca un equilibrio entre privacidad y apertura. Las fachadas orientadas hacia las parcelas vecinas son más cerradas, mientras que los espacios interiores se abren hacia el jardín mediante grandes ventanales. Esta disposición permite disfrutar de la luz natural y del exterior manteniendo la intimidad de la vivienda."
+      },
+      {
+        "title": "Luz y sombra",
+        "text": "En la planta superior se sitúan las estancias privadas, orientadas para aprovechar la entrada de luz a lo largo del día. Ventanales, celosías y voladizos ayudan a controlar la incidencia del sol y aportan diferentes grados de luz y sombra según el momento y la época del año."
+      },
+      {
+        "title": "Vivir hacia el jardín",
+        "text": "Con una arquitectura sencilla y contenida, Casa Claro de Luz propone una forma de vivir volcada hacia el interior de la parcela, donde el jardín, la luz y la privacidad definen el carácter de la casa."
       }
     ],
     "steps": [
       {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
-      },
-      {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
+        "src": "claro-de-luz/esbozo.webp",
+        "label": "Esbozo del proyecto"
       }
-    ]
+    ],
+    "sourceDocument": "images/CLARODELUZ/Casa Claro de Luz.pdf"
   },
   {
     "slug": "brisa-de-luz",
-    "title": "Brisa De Luz",
-    "location": "Barcelona",
-    "cover": "/media/image6.jpeg",
+    "title": "Brisa de Luz",
+    "location": "Sant Pere de Ribes",
+    "cover": "brisa-de-luz/image1.webp",
     "photos": [
-      "/media/image6.jpeg",
-      "/media/image2.jpeg",
-      "/media/image3.jpeg"
-    ],
-    "statement": "",
-    "sections": [],
-    "steps": [
       {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
+        "src": "brisa-de-luz/image1.webp",
+        "label": ""
       },
       {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
+        "src": "brisa-de-luz/image.webp",
+        "label": ""
+      },
+      {
+        "src": "brisa-de-luz/image2.webp",
+        "label": ""
+      },
+      {
+        "src": "brisa-de-luz/image3.webp",
+        "label": ""
+      },
+      {
+        "src": "brisa-de-luz/image4.webp",
+        "label": ""
+      },
+      {
+        "src": "brisa-de-luz/image5.webp",
+        "label": ""
+      },
+      {
+        "src": "brisa-de-luz/op-1/image.webp",
+        "label": "Opción 1"
+      },
+      {
+        "src": "brisa-de-luz/op-1/image0.webp",
+        "label": "Opción 1"
+      },
+      {
+        "src": "brisa-de-luz/op-1/image1.webp",
+        "label": "Opción 1"
+      },
+      {
+        "src": "brisa-de-luz/op-1/image2.webp",
+        "label": "Opción 1"
+      },
+      {
+        "src": "brisa-de-luz/op-1/image3.webp",
+        "label": "Opción 1"
+      },
+      {
+        "src": "brisa-de-luz/op-1/image4.webp",
+        "label": "Opción 1"
+      },
+      {
+        "src": "brisa-de-luz/op-1/image5.webp",
+        "label": "Opción 1"
+      },
+      {
+        "src": "brisa-de-luz/op-1/image7.webp",
+        "label": "Opción 1"
       }
-    ]
+    ],
+    "statement": "Brisa de Luz se sitúa en la urbanización Mas Alba, en Sant Pere de Ribes, sobre una parcela en pendiente orientada al nordeste. El proyecto aprovecha el desnivel para integrar la vivienda en el terreno y generar, a través de la propia arquitectura, una amplia plataforma exterior ajardinada donde se concentra la vida de la casa.",
+    "sections": [
+      {
+        "title": "Un jardín protegido",
+        "text": "La vivienda se organiza en forma de L alrededor de este nuevo espacio exterior. Gracias a esta disposición, la planta principal se prolonga hacia el jardín, el porche y la piscina, creando una superficie continua y aprovechando al máximo el espacio disponible. La casa se abre hacia este ámbito privado y se cierra hacia la calle, protegiendo la intimidad de sus espacios interiores."
+      },
+      {
+        "title": "Organización en dos plantas",
+        "text": "La distribución se resuelve en dos plantas. En la planta superior, a nivel de calle, se sitúan el acceso y el garaje, desde donde una escalera conduce al núcleo de la vivienda. En la planta baja se concentran los espacios principales: sala de estar, cocina y suite principal, todos ellos en relación directa con el jardín."
+      },
+      {
+        "title": "Arquitectura y paisaje",
+        "text": "El resto de la parcela acompaña la pendiente natural mediante bancadas y terrazas escalonadas con diferentes especies de árboles frutales. De esta manera, arquitectura y paisaje trabajan conjuntamente para transformar una parcela con desnivel en una vivienda abierta a un gran espacio exterior, luminoso y protegido."
+      }
+    ],
+    "steps": [],
+    "sourceDocument": "images/BRISADELUZ/Brisa de Luz — Sant Pere de Ribes.pdf"
   },
   {
     "slug": "brisa-del-alba",
-    "title": "Brisa Del Alba",
-    "location": "Barcelona",
-    "cover": "/media/image2.jpeg",
+    "title": "Brisa del Alba",
+    "location": "Canyelles",
+    "cover": "brisa-del-alba/brisa2.webp",
     "photos": [
-      "/media/image2.jpeg",
-      "/media/image3.jpeg",
-      "/media/image6.jpeg"
-    ],
-    "statement": "",
-    "sections": [],
-    "steps": [
       {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
+        "src": "brisa-del-alba/brisa2.webp",
+        "label": ""
       },
       {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
+        "src": "brisa-del-alba/brisa1.webp",
+        "label": ""
+      },
+      {
+        "src": "brisa-del-alba/brisa3.webp",
+        "label": ""
+      },
+      {
+        "src": "brisa-del-alba/brisa4.webp",
+        "label": ""
       }
-    ]
+    ],
+    "statement": "Brisa del Alba se sitúa en una parcela en pendiente en Canyelles, con una condición particular: las vistas y la orientación favorable se encontraban en sentido contrario a la relación natural de la parcela con la calle. El proyecto parte de esta situación para reorganizar la vivienda y encontrar una nueva relación con el entorno.",
+    "sections": [
+      {
+        "title": "Implantación y jardín",
+        "text": "La casa se adapta al desnivel mediante distintos niveles que se integran en la topografía. Primero se resuelve la implantación y la organización de la vivienda y, a partir de ella, aparece el jardín como una prolongación natural de la planta principal. Los espacios de día se abren hacia este nuevo exterior, donde el jardín y la piscina pasan a formar parte de la vida cotidiana de la casa."
+      },
+      {
+        "title": "La escalera como rótula",
+        "text": "Una escalera central actúa como rótula del proyecto, conectando las diferentes plantas y unificando la vivienda tanto a nivel funcional como visual. Más que un elemento de circulación, la escalera articula los distintos espacios y acompaña la relación de la casa con la pendiente."
+      },
+      {
+        "title": "Organización de la vivienda",
+        "text": "En la planta de acceso se sitúan la entrada y el garaje de forma discreta. La planta principal reúne la cocina, el salón y la zona de día en contacto directo con el jardín y la piscina, además de una suite independiente. En la planta superior se encuentran el resto de las habitaciones, manteniendo la privacidad y la conexión con el exterior."
+      },
+      {
+        "title": "Continuidad y paisaje",
+        "text": "De esta manera, Brisa del Alba transforma las condiciones iniciales de la parcela en parte de su arquitectura: una casa que se adapta al terreno, se integra en la topografía y encuentra en la escalera el elemento que conecta y da continuidad a todo el proyecto."
+      }
+    ],
+    "steps": [
+      {
+        "src": "brisa-del-alba/esquemabrisa.webp",
+        "label": "Esquema del proyecto"
+      }
+    ],
+    "sourceDocument": "images/BRISA/Brisa del Alba — Canyelles.pdf"
   },
   {
     "slug": "claroscuro",
     "title": "Claroscuro",
-    "location": "Barcelona",
-    "cover": "/media/image3.jpeg",
+    "location": "Sarrià, Barcelona",
+    "cover": "claroscuro/image.webp",
     "photos": [
-      "/media/image3.jpeg",
-      "/media/image6.jpeg",
-      "/media/image2.jpeg"
-    ],
-    "statement": "",
-    "sections": [],
-    "steps": [
       {
-        "src": "/media/infinita-esbozo.webp",
-        "label": "Volumen y paisaje"
+        "src": "claroscuro/image.webp",
+        "label": ""
       },
       {
-        "src": "/media/claro-de-luz-esbozo.webp",
-        "label": "Luz y espacio"
+        "src": "claroscuro/image1.webp",
+        "label": ""
+      },
+      {
+        "src": "claroscuro/image2.webp",
+        "label": ""
+      },
+      {
+        "src": "claroscuro/image3.webp",
+        "label": ""
       }
-    ]
+    ],
+    "statement": "Casa Claroscuro es la reforma de la planta baja de un edificio de 1920 situado en la plaza Joaquim Pena, en Sarrià. El proyecto parte de una intervención estructural importante: un apeo que permite eliminar paredes y unir la sala de estar con la cocina, transformando un espacio originalmente oscuro y fragmentado en una estancia continua y muy luminosa.",
+    "sections": [
+      {
+        "title": "La memoria de la materia",
+        "text": "La intervención no busca borrar el pasado de la finca, sino mostrarlo. Las paredes originales de obra, con su grosor y textura irregular, se mantienen a la vista. Frente a ellas, los nuevos paramentos blancos y precisos actúan como un fondo neutro que refleja la luz natural y subraya el contraste entre lo antiguo y lo contemporáneo."
+      },
+      {
+        "title": "La luz como protagonista",
+        "text": "La luz natural es la principal protagonista. Entra tamizada, recorre el espacio a lo largo y se desliza sobre la piedra, generando un juego de claros y sombras que cambia durante el día. Además, los techos conservan las vigas originales vistas, manteniendo la identidad original de la construcción."
+      },
+      {
+        "title": "Contención y claridad",
+        "text": "Casa Claroscuro huye de los artificios. Es un trabajo de contención y claridad, donde la arquitectura contemporánea se integra con sencillez para que la historia del edificio vuelva a respirar."
+      }
+    ],
+    "steps": [],
+    "sourceDocument": "images/JP/Casa Claroscuro — Sarrià.pdf"
+  },
+  {
+    "slug": "casa-invertida",
+    "title": "Casa Invertida",
+    "location": "Sant Quirze",
+    "statement": "Situada en una parcela con un fuerte desnivel entre dos calles, Casa Invertida plantea una solución que cambia el orden tradicional de la vivienda para aprovechar al máximo las vistas y el sol. La calle inferior, al norte, ofrece las mejores vistas, mientras que la superior, al sur, garantiza la mejor orientación solar.",
+    "sections": [
+      {
+        "title": "Invertir el orden",
+        "text": "Para responder a esta dualidad, la casa invierte su esquema habitual. La planta superior acoge la zona de día en un espacio abierto de 10x10 metros sin pilares intermedios, conectando una terraza con piscina al sur con un gran ventanal al norte que enmarca el horizonte. En el nivel intermedio se sitúa la zona de noche, con habitaciones flexibles que se adaptan a las necesidades de sus habitantes, además de la suite principal."
+      },
+      {
+        "title": "Luz cenital",
+        "text": "Aprovechando la excavación necesaria en el terreno, la planta sótano alberga un amplio espacio polivalente con una piscina interior de 25 metros, iluminada de forma cenital por un gran lucernario que deja pasar la luz natural."
+      },
+      {
+        "title": "Confort y eficiencia",
+        "text": "Combinando una alta eficiencia energética, un buen aislamiento y una construcción que cuida el confort climático, Casa Invertida convierte un reto topográfico en un hogar cómodo, funcional y conectado con su entorno."
+      }
+    ],
+    "cover": "casa-invertida/image2.webp",
+    "photos": [
+      {
+        "src": "casa-invertida/image2.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-invertida/image.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-invertida/image1.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-invertida/image3.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-invertida/image4.webp",
+        "label": ""
+      },
+      {
+        "src": "casa-invertida/image5.webp",
+        "label": ""
+      }
+    ],
+    "steps": [
+      {
+        "src": "casa-invertida/esq1.webp",
+        "label": "Esquema del proyecto"
+      }
+    ],
+    "sourceDocument": "images/SANTQUIRZE/Casa Invertida.pdf"
+  },
+  {
+    "slug": "santander-3",
+    "title": "Santander 3",
+    "location": "",
+    "statement": "",
+    "sections": [],
+    "cover": "santander-3/image.webp",
+    "photos": [
+      {
+        "src": "santander-3/image.webp",
+        "label": ""
+      },
+      {
+        "src": "santander-3/image1.webp",
+        "label": ""
+      },
+      {
+        "src": "santander-3/image3.webp",
+        "label": ""
+      },
+      {
+        "src": "santander-3/image4.webp",
+        "label": ""
+      },
+      {
+        "src": "santander-3/image5.webp",
+        "label": ""
+      }
+    ],
+    "steps": []
   }
 ]

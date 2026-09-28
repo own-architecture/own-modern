@@ -3,8 +3,9 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { ArrowRight, Pause, Play } from 'lucide-react';
+import type { OptimizedImage } from '../data/projects';
 
-export default function Entrance({ selector = false }: { selector?: boolean }) {
+export default function Entrance({ selector = false, images }: { selector?: boolean; images: { studio: OptimizedImage; projects: OptimizedImage; poster: string } }) {
   const root = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [entered, setEntered] = useState(selector);
@@ -34,17 +35,17 @@ export default function Entrance({ selector = false }: { selector?: boolean }) {
   return <div ref={root} className="entrance">
     <section className="entry-split" aria-label="Explorar OWN" inert={!entered} onMouseLeave={() => resize(null)}>
       <a href="/estudio/" className="split-pane studio-pane" data-dark onMouseEnter={() => resize('studio')}>
-        <img src="/media/image3.jpeg" alt="" className="pane-image" />
+        <img {...images.studio} alt="" className="pane-image" />
         <div className="pane-copy"><span className="eyebrow">01 / OWN</span><h1>ESTUDIO</h1><p>Filosofía, proceso y una forma de entender la arquitectura desde la luz, la materia, la proporción y el lugar.</p><span className="split-action">Descubrir estudio <ArrowRight size={22}/></span></div>
       </a>
       <a href="/proyectos/" className="split-pane projects-pane" onMouseEnter={() => resize('projects')}>
-        <img src="/media/image2.jpeg" alt="" className="pane-image" />
+        <img {...images.projects} alt="" className="pane-image" />
         <div className="pane-copy"><span className="eyebrow">02 / ARCHITECTURE</span><h1>PROYECTOS</h1><p>Viviendas concebidas desde la relación entre paisaje, materia, luz y experiencia de habitar.</p><span className="split-action">Ver proyectos <ArrowRight size={22}/></span></div>
       </a>
       <a className="selector-home" href="/" aria-label="Volver al inicio">OWN</a>
     </section>
     {!selector && <section className="intro-screen" data-dark inert={entered} aria-label="OWN Architecture">
-      <video ref={video} autoPlay muted loop playsInline poster="/media/inicio-poster.jpg"><source src="/media/inicio.mp4" type="video/mp4" /></video>
+      <video ref={video} autoPlay muted loop playsInline poster={images.poster}><source src="/videos/inicio.mp4" type="video/mp4" /></video>
       <span className="intro-caption">OWN ARCHITECTURE</span>
       <button className="intro-own" onClick={enter} aria-label="Entrar en OWN Architecture">OWN</button>
       <div className="intro-bottom"><span>Arquitectura, materia y lugar.</span><button onClick={enter} className="inline-flex items-center gap-4">Entrar <ArrowRight size={22}/></button></div>

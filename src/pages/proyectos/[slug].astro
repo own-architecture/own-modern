@@ -3,12 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import ProjectDetail from '../../components/ProjectDetail';
 import Footer from '../../components/Footer.astro';
 import { projects } from '../../data/projects';
+import { prepareProject } from '../../lib/projectImages';
 export function getStaticPaths() {
   return projects.map((project, i) => ({ params: { slug: project.slug }, props: { project, next: projects[(i + 1) % projects.length] } }));
 }
 const { project, next } = Astro.props;
+const prepared = await prepareProject(project);
 ---
 <Layout title={`${project.title} | OWN Architecture`}>
-  <ProjectDetail project={project} next={next} client:load />
+  <ProjectDetail project={prepared} next={{ slug: next.slug, title: next.title }} client:load />
   <Footer />
 </Layout>

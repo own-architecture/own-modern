@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWN — Arquitectura & Diseño</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fuentes: Inter, Playfair Display y Space Grotesk para las fichas técnicas -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- IMPORTACIÓN DE LA TIPOGRAFÍA SUISSE INTL TRIAL BOLD --- */
+    @font-face {
+      font-family: 'Suisse Intl Trial Bold';
+      src: local('SwissTypefaces Suisse'), local('SuisseIntl-Bold'), url('https://cdn.jsdelivr.net/gh/swisstypefaces/trial@main/SuisseIntl-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* --- RESET Y ESTILOS BASE --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+    
+    html, body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: #f4f1eb; 
+      color: #1f211d; 
+      width: 100vw; 
+      height: 100vh; 
+      overflow: hidden; 
+    }
+
+    button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+
+    /* --- APLICACIÓN DE SUISSE INTL TRIAL BOLD --- */
+    .brand-logo, .hero-title-interactive {
+        font-family: 'Suisse Intl Trial Bold', 'Inter', sans-serif !important;
+        font-weight: 700 !important;
+        font-stretch: normal !important;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+    }
+
+    h2, h3, h4, .split-title, .team-name, .project-card-title, .section-header-title, .archive-title {
+        font-family: 'Inter', sans-serif !important; 
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        font-weight: 600;
+    }
+
+    /* --- NAV MINIMALISTA --- */
+    .nav-bar { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 1.5rem 6vw; 
+      z-index: 10000; 
+      background: rgba(244, 241, 235, 0.82); 
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px); 
+      pointer-events: none; 
+    }
+    .nav-bar > * { pointer-events: auto; }
+
+    .brand-logo { 
+        font-size: 1.05rem; 
+        letter-spacing: 0.32em; 
+        color: #1f211d; 
+        cursor: pointer; 
+        transition: letter-spacing 0.5s ease; 
+    }
+    .brand-logo:hover { letter-spacing: 0.28em; }
+    
+    .nav-back-btn { 
+        font-family: 'Inter', sans-serif; 
+        font-size: 0.75rem; 
+        font-weight: 500; 
+        text-transform: uppercase; 
+        letter-spacing: 0.15em; 
+        color: #8a867c; 
+        transition: color 0.3s; 
+    }
+    .nav-back-btn:hover { color: #1f211d; }
+
+    /* --- GESTIÓN DE VISTAS --- */
+    .page-section { 
+      display: none; 
+      width: 100vw; 
+      height: 100vh; 
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #f4f1eb; 
+    }
+    .page-section.active { 
+      display: flex; 
+    }
+
+    /* --- 1. HOME --- */
+    #section-home { 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      position: relative; 
+      overflow: hidden; 
+      background-color: #000;
+    }
+    .home-bg-video { 
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      min-width: 100%; 
+      min-height: 100%; 
+      width: auto; 
+      height: auto; 
+      transform: translate(-50%, -50%); 
+      object-fit: cover; 
+      z-index: 1; 
+      filter: brightness(0.62) contrast(1.02) saturate(0.92); 
+    }
+    .home-overlay-content { position: relative; z-index: 2; text-align: center; color: #ffffff; }
+    
+    .hero-title-interactive { 
+        font-size: clamp(5rem, 18vw, 16rem); 
+        letter-spacing: -0.035em; 
+        line-height: 0.8; 
+        cursor: pointer; 
+        user-select: none; 
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), letter-spacing: 0.6s; 
+    }
+    .hero-title-interactive:hover { letter-spacing: 0.01em; transform: scale(1.03); }
+    
+    .hero-subtext { 
+        font-family: 'Inter', sans-serif; 
+        margin-top: 1.8rem; 
+        font-size: 0.85rem; 
+        text-transform: uppercase; 
+        letter-spacing: 0.35em; 
+        color: #ffffff; 
+        font-weight: 300;
+        opacity: 0.9;
+    }
+
+    /* --- 2. SPLIT SCREEN --- */
+    #section-split { 
+      width: 100vw; 
+      height: 100vh; 
+      position: relative; 
+    }
+    .split-pane { 
+      flex: 1; 
+      height: 100%; 
+      position: relative; 
+      overflow: hidden; 
+      cursor: pointer; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: flex-end; 
+      padding: 6vw; 
+      transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1); 
+    }
+    
+    .split-pane img { 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      filter: saturate(0.82) brightness(0.9); 
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease; 
+      z-index: 0; 
+    }
+    .split-pane:hover img { 
+      transform: scale(1.05); 
+      filter: saturate(1) brightness(0.98); 
+    }
+
+    .split-pane::before { 
+      content: ''; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: linear-gradient(to top, rgba(24,24,20,0.42), rgba(24,24,20,0.08)); 
+      transition: background 0.6s ease; 
+      z-index: 1; 
+    }
+    .split-pane:hover::before { 
+      background: linear-gradient(to top, rgba(24,24,20,0.22), rgba(24,24,20,0.02)); 
+    }
+
+    .split-content { position: relative; z-index: 2; color: #ffffff; pointer-events: none; }
+    
+    .split-title { 
+        font-size: clamp(2.2rem, 4vw, 4.5rem); 
+        margin-bottom: 0.5rem; 
+        transition: transform 0.4s ease; 
+    }
+    
+    .split-desc { 
+        font-family: 'Inter', sans-serif; 
+        font-size: 0.85rem; 
+        letter-spacing: 0.02em; 
+        color: #e0e0e0; 
+        opacity: 0.9; 
+        max-width: 380px;
+        line-height: 1.6;
+        transition: opacity 0.5s ease, transform 0.5s ease; 
+        text-transform: none; 
+        font-weight: 300;
+    }
+    .split-pane:hover .split-title { transform: translateY(-4px); }
+    .split-pane:hover .split-desc { opacity: 1; transform: translateY(-2px); }
+
+    /* --- CONTENEDORES CON SCROLL --- */
+    .scrollable-content-wrapper {
+      width: 100vw;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: #f4f1eb;
+    }
+
+    .section-inner { padding: 150px 6vw 110px 6vw; max-width: 1650px; margin: 0 auto; }
+    
+    .section-header-title { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 2rem; }
+    .section-intro-text { 
+        font-family: 'Inter', sans-serif; 
+        font-size: clamp(1.05rem, 1.4vw, 1.4rem); 
+        line-height: 1.8; 
+        color: #4f514b; 
+        max-width: 900px; 
+        margin-bottom: 5rem; 
+        font-weight: 300;
+    }
+    
+    /* --- ESTUDIO --- */
+    .team-group-photo-container {
+      width: 100%;
+      height: 60vh;
+      overflow: hidden;
+      margin-bottom: 6rem;
+      background: #eee;
+    }
+    .team-group-photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.82) contrast(0.98);
+      transition: filter 0.8s ease, transform 1s ease;
+    }
+    .team-group-photo-container:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.02);
+    }
+
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4vw; }
+    .team-card { position: relative; }
+    .team-img-container { width: 100%; height: 45vh; overflow: hidden; background: #eee; margin-bottom: 1.5rem;}
+    .team-img-container img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: transform 1s ease, filter 0.5s ease; }
+    .team-card:hover .team-img-container img { transform: scale(1.04); filter: grayscale(0%); }
+    
+    .team-name { font-size: 1.2rem; letter-spacing: 0.1em; }
+    .team-role { 
+        font-family: 'Inter', sans-serif; 
+        font-size: 0.8rem; 
+        letter-spacing: 0.05em; 
+        color: #666; 
+        margin-top: 0.5rem; 
+        text-transform: uppercase; 
+        font-weight: 400;
+    }
+
+    /* --- PROYECTOS (4 COLUMNAS) --- */
+    #proyectos-radical {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 120px 40px;
+      max-width: 1650px;
+      margin: 0 auto;
+    }
+
+    .columna-1 { display: flex; flex-direction: column; gap: 140px; }
+    .columna-2 { display: flex; flex-direction: column; gap: 140px; margin-top: 180px; }
+    .columna-3 { display: flex; flex-direction: column; gap: 140px; margin-top: 60px; }
+    .columna-4 { display: flex; flex-direction: column; gap: 140px; margin-top: 240px; }
+
+    .marco {
+      position: relative;
+      overflow: visible;
+      transition: z-index 0s;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .imagen-zoom {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  filter 0.5s ease, 
+                  box-shadow 0.6s ease;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .marco:hover { z-index: 100; }
+    
+    .marco:hover .imagen-zoom {
+      transform: scale(1.25);
+      filter: grayscale(0%);
+      box-shadow: 0 35px 70px rgba(0,0,0,0.25);
+      z-index: 100;
+    }
+
+    .h-sm { height: 260px; }
+    .h-md { height: 380px; }
+    .h-lg { height: 500px; }
+
+    .meta { 
+      margin-top: 18px; 
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem; 
+      letter-spacing: 0.2em; 
+      text-transform: uppercase; 
+      color: #111; 
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+    }
+    .meta span { opacity: 0.4; }
+
+    /* --- ESTILOS DE LA PLANTILLA MATRIZ 15X10 (DETALLE DE PROYECTO AMPLIADA) --- */
+    .project-detail-view {
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      width: 100vw;
+      min-height: 3800px; /* Ampliado para dar espacio a los nuevos dibujos */
+      background-color: #ffffff;
+      color: #1f211d;
+      overflow-x: hidden;
+    }
+
+    .blueprint-top-guides {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 35vw;
+      background-image: 
+          linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+      background-size: 4vw 4vw;
+      pointer-events: none;
+      z-index: 1;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .reg-mark {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: #666;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 100vw;
+      min-height: 3800px;
+      margin: 0;
+      padding: 5vw;
+      z-index: 3;
+    }
+
+    .header-block {
+      position: absolute;
+      top: 8vw;
+      left: 10%;
+      width: 26vw;
+      max-width: 350px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .header-block strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .zoom-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .zoom-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .zoom-container:hover img {
+      transform: scale(1.25);
+    }
+
+    /* Elemento 01: Fotografía / Dibujo principal con blueprint interactivo */
+    .item-01 {
+      position: absolute;
+      top: 22vw;
+      left: 10%;
+      width: 22vw;
+      height: 28vw;
+      min-width: 220px;
+      min-height: 280px;
+      cursor: pointer;
+    }
+    .item-01 img {
+      filter: grayscale(100%) contrast(110%);
+    }
+
+    .blueprint-sketch-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(49,54,44,0.94);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 4;
+    }
+
+    .item-01:hover .blueprint-sketch-overlay,
+    .item-drawing:hover .blueprint-sketch-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .blueprint-sketch-overlay svg {
+      width: 85%;
+      height: 85%;
+      stroke: #efe9dd;
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .blueprint-label {
+      position: absolute;
+      bottom: 12px;
+      left: 15px;
+      font-family: monospace;
+      font-size: 0.65rem;
+      color: #d7c9b5;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .image-label {
+      position: absolute;
+      bottom: -28px;
+      right: 0;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      z-index: 5;
+    }
+
+    .main-title {
+      position: absolute;
+      top: 25vw;
+      left: 38%;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    .edge-element-left {
+      position: absolute;
+      top: 60vw;
+      left: -40px;
+      width: 28vw;
+      height: 14vw;
+      min-width: 250px;
+      min-height: 120px;
+      background: #ebe5da;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .edge-element-right {
+      position: absolute;
+      top: 44vw;
+      right: -40px;
+      width: 30vw;
+      height: 13vw;
+      min-width: 260px;
+      min-height: 110px;
+      background: #ebe5da;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .item-02 {
+      position: absolute;
+      top: 48vw;
+      left: 42%;
+      width: 22vw;
+      height: 28vw;
+      min-width: 220px;
+      min-height: 280px;
+    }
+
+    .item-03 {
+      position: absolute;
+      top: 78vw;
+      left: 42%;
+      width: 22vw;
+      height: 28vw;
+      min-width: 220px;
+      min-height: 280px;
+    }
+
+    /* --- NUEVOS HUECOS PARA DIBUJOS TÉCNICOS ADICIONALES --- */
+    .item-drawing-1 {
+      position: absolute;
+      top: 108vw;
+      left: 10%;
+      width: 36vw;
+      height: 24vw;
+      min-width: 280px;
+      min-height: 200px;
+      cursor: pointer;
+    }
+    .item-drawing-1 img {
+      filter: grayscale(100%) contrast(115%);
+    }
+
+    .item-drawing-2 {
+      position: absolute;
+      top: 108vw;
+      right: 10%;
+      width: 36vw;
+      height: 24vw;
+      min-width: 280px;
+      min-height: 200px;
+      cursor: pointer;
+    }
+    .item-drawing-2 img {
+      filter: grayscale(100%) contrast(115%);
+    }
+
+    .middle-right-card {
+      position: absolute;
+      top: 94vw;
+      right: 12%;
+      width: 20vw;
+      height: 26vw;
+      min-width: 200px;
+      min-height: 260px;
+    }
+
+    .footer-section {
+      position: absolute;
+      top: 142vw; /* Desplazado hacia abajo para dar cabida a los dibujos */
+      left: 5%;
+      right: 5%;
+      width: 90vw;
+      height: 42vw;
+      min-height: 420px;
+    }
+    
+    .footer-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overflow-title {
+      position: absolute;
+      bottom: -3.5vw;
+      left: 3vw;
+      font-size: clamp(3rem, 9vw, 8.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      z-index: 5;
+      color: #111111;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(90px) scale(0.96);
+      filter: blur(4px);
+      transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1200px) {
+      #proyectos-radical { grid-template-columns: repeat(2, 1fr); gap: 80px; }
+      .columna-1, .columna-2, .columna-3, .columna-4 { margin-top: 0 !important; gap: 80px; }
+    }
+    @media (max-width: 1000px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 6vw;}
+      .h-sm, .h-md, .h-lg { height: 350px; }
+    }
+    @media (max-width: 800px) {
+      #section-split { flex-direction: column; }
+      .nav-bar { padding: 1rem 5vw; }
+      .brand-logo { font-size: 1rem; }
+      .section-inner { padding: 120px 5vw 80px 5vw; }
+      .section-intro-text { margin-bottom: 3rem; font-size: 1.2rem;}
+      #proyectos-radical { grid-template-columns: 1fr; gap: 60px; }
+      .team-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .team-img-container, .team-group-photo-container { height: 40vh; }
+    }
+
+    /* --- CAPA EDITORIAL MEDITERRÁNEA --- */
+    .section-header-title, .main-title, .overflow-title {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic;
+      font-weight: 400 !important;
+      text-transform: none;
+      letter-spacing: -0.035em;
+    }
+    .section-header-title { font-size: clamp(3rem, 6vw, 6rem); line-height: 0.98; }
+    .section-intro-text { max-width: 760px; }
+    .meta { color: #5a5b54; }
+    .meta span { opacity: 0.5; }
+    .project-detail-view .image-label { color: #7c786f; }
+    .home-overlay-content::after {
+      content: 'Barcelona · Mediterráneo';
+      display: block;
+      margin-top: 1.2rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+    @media (max-width: 800px) {
+      .hero-title-interactive { font-size: clamp(5rem, 30vw, 9rem); }
+      .home-overlay-content { padding: 0 6vw; }
+      .split-pane { min-height: 50vh; }
+      .project-detail-view, .canvas-container { min-height: 3000px; }
+    }
+
+  
+
+    /* =========================================================
+       OWN / MEDITERRANEA V3 — CAMBIO VISUAL FUERTE
+       ========================================================= */
+    :root{
+      --ivory:#f3efe7;
+      --paper:#ebe5d9;
+      --ink:#20211d;
+      --muted:#76746b;
+      --olive:#5f6655;
+      --line:rgba(32,33,29,.17);
+    }
+    html,body{background:var(--ivory);color:var(--ink)}
+    .page-section,.scrollable-content-wrapper{background:var(--ivory)}
+
+    /* HOME — editorial, menos “splash screen” */
+    #section-home{align-items:flex-start;justify-content:flex-end;background:#181a16;}
+    #section-home::after{
+      content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+      background:linear-gradient(90deg,rgba(15,16,13,.52) 0%,rgba(15,16,13,.14) 46%,rgba(15,16,13,.05) 100%);
+    }
+    .home-bg-video{filter:brightness(.76) saturate(.78) contrast(.98);}
+    .home-overlay-content{
+      width:min(1120px,88vw);margin:0 0 8vh 6vw;text-align:left;z-index:3;
+      display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:4rem;
+    }
+    .hero-title-interactive{
+      font-size:clamp(6rem,17vw,16rem);line-height:.72;letter-spacing:-.06em;
+      text-transform:uppercase;color:#f7f3ea;
+    }
+    .hero-title-interactive:hover{transform:none;letter-spacing:-.055em;}
+    .hero-subtext{margin:0 0 .8rem 0;max-width:270px;font-size:.68rem;line-height:1.7;letter-spacing:.2em;color:#f7f3ea;}
+    .home-overlay-content::before{
+      content:'VIVIENDAS · PAISAJE · MATERIA';position:absolute;top:-3.5rem;left:.35rem;
+      font:500 .62rem/1 'Inter',sans-serif;letter-spacing:.23em;color:rgba(247,243,234,.78)
+    }
+    .home-overlay-content::after{
+      content:'BARCELONA — MEDITERRÁNEO';margin:0 0 .8rem 0;display:block;
+      font-size:.62rem;letter-spacing:.22em;color:rgba(247,243,234,.72);text-transform:uppercase;
+    }
+
+    /* SPLIT — dos portadas cálidas y más limpias */
+    #section-split{gap:1px;background:rgba(255,255,255,.2)}
+    .split-pane{padding:6vw 5vw;}
+    .split-pane img{filter:saturate(.78) contrast(.96) brightness(.78);}
+    .split-pane:hover img{transform:scale(1.025);filter:saturate(.95) contrast(.98) brightness(.88)}
+    .split-pane::before{background:linear-gradient(to top,rgba(19,20,17,.58),rgba(19,20,17,.03) 62%)}
+    .split-pane:hover::before{background:linear-gradient(to top,rgba(19,20,17,.45),rgba(19,20,17,.01) 62%)}
+    .split-title{
+      font-family:'Playfair Display',serif!important;font-style:italic;font-weight:400!important;
+      text-transform:none;letter-spacing:-.04em;font-size:clamp(3.8rem,7vw,8rem);line-height:.9;
+    }
+    .split-desc{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;max-width:330px;color:#f5f1e8;}
+
+    /* NAV */
+    .nav-bar{padding:1.2rem 4vw;background:rgba(243,239,231,.9);border-bottom:1px solid var(--line);}
+    .brand-logo{font-size:.92rem;letter-spacing:.42em;}
+    .nav-back-btn{font-size:.66rem;letter-spacing:.18em;color:var(--muted)}
+
+    /* ESTUDIO */
+    .section-inner{padding:155px 5vw 110px;max-width:1800px;}
+    .section-header-title{
+      max-width:900px;font-family:'Playfair Display',serif!important;font-style:italic;
+      font-size:clamp(4.2rem,8vw,8.6rem);line-height:.84;margin-bottom:3.5rem;color:var(--ink)
+    }
+    .section-intro-text{font-size:clamp(1.2rem,1.8vw,1.8rem);line-height:1.55;max-width:820px;color:#484941;margin-left:25%;}
+    .team-group-photo-container{height:72vh;margin:7rem 0 7rem;}
+    .team-group-photo-container img,.team-img-container img{filter:saturate(.7) contrast(.96)}
+    .team-group-photo-container:hover img,.team-card:hover .team-img-container img{filter:saturate(.95)}
+    .team-grid{grid-template-columns:repeat(3,1fr);gap:2vw;}
+    .team-name{font-size:1rem;letter-spacing:.04em;font-weight:500}
+    .team-role{font-size:.65rem;letter-spacing:.14em;color:var(--muted)}
+
+    /* ARCHIVO — de 4 columnas pequeñas a 2 columnas editoriales */
+    #proyectos-radical{grid-template-columns:repeat(2,minmax(0,1fr));gap:10vw 4vw;max-width:1700px;}
+    .columna-1,.columna-2,.columna-3,.columna-4{display:contents!important;margin:0!important;}
+    .marco{margin:0!important;}
+    .imagen-zoom,.h-sm,.h-md,.h-lg{height:clamp(340px,48vw,720px)!important;object-fit:cover;filter:saturate(.78) contrast(.96)!important;box-shadow:none!important;}
+    .marco:nth-child(even) .imagen-zoom{height:clamp(300px,38vw,620px)!important;}
+    .marco:hover .imagen-zoom{transform:scale(1.015)!important;filter:saturate(.98)!important;box-shadow:none!important;}
+    .meta{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.67rem;letter-spacing:.16em;color:var(--ink);}
+    .meta span{opacity:.45}
+
+    /* DETALLE — monografía, no blueprint */
+    .project-detail-view{min-height:3400px;background:var(--ivory);}
+    .blueprint-top-guides,.reg-mark,.edge-element-left,.edge-element-right,.blueprint-sketch-overlay{display:none!important;}
+    .canvas-container{min-height:3400px;padding:0 5vw;}
+    .header-block{top:11rem;left:5vw;width:38vw;max-width:620px;font-size:1rem;line-height:1.65;color:#5f6059;}
+    .header-block strong{font-size:.65rem;letter-spacing:.18em;color:var(--muted);margin-bottom:1rem;}
+    .main-title{
+      top:18rem;left:auto;right:5vw;width:55vw;text-align:right;
+      font-family:'Playfair Display',serif!important;font-style:italic;font-weight:400!important;
+      text-transform:none;font-size:clamp(4rem,8vw,9rem);line-height:.82;letter-spacing:-.055em;
+    }
+    .item-01{top:34rem;left:5vw;width:90vw;height:65vw;max-height:920px;}
+    .item-01 img{filter:none!important;}
+    .image-label{bottom:-24px;font-size:.62rem;letter-spacing:.16em;color:var(--muted)}
+    .item-02{top:calc(34rem + min(65vw,920px) + 10rem);left:5vw;width:42vw;height:54vw;max-height:760px;}
+    .item-03{top:calc(34rem + min(65vw,920px) + 22rem);left:53vw;width:42vw;height:40vw;max-height:620px;}
+    .middle-right-card{top:calc(34rem + min(65vw,920px) + 69rem);right:5vw;width:32vw;height:38vw;max-height:570px;}
+    .item-drawing-1{top:calc(34rem + min(65vw,920px) + 78rem);left:5vw;width:42vw;height:30vw;max-height:460px;}
+    .item-drawing-2{top:calc(34rem + min(65vw,920px) + 112rem);right:5vw;width:42vw;height:30vw;max-height:460px;}
+    .footer-section{top:calc(34rem + min(65vw,920px) + 148rem);left:5vw;right:5vw;width:90vw;height:54vw;max-height:840px;}
+    .overflow-title{
+      bottom:-4.7vw;left:0;font-family:'Playfair Display',serif!important;font-style:italic;font-weight:400!important;
+      text-transform:none;color:var(--ink);font-size:clamp(4rem,10vw,10rem);letter-spacing:-.055em;
+    }
+    .zoom-container:hover img{transform:scale(1.018)}
+
+    @media(max-width:800px){
+      .home-overlay-content{width:88vw;margin:0 6vw 9vh;display:block;}
+      .hero-title-interactive{font-size:clamp(6rem,34vw,10rem);}
+      .hero-subtext{margin-top:2rem;}
+      .home-overlay-content::after{margin-top:.8rem;}
+      .section-intro-text{margin-left:0;}
+      #proyectos-radical{grid-template-columns:1fr;gap:5rem;}
+      .imagen-zoom,.h-sm,.h-md,.h-lg,.marco:nth-child(even) .imagen-zoom{height:70vh!important;}
+      .team-grid{grid-template-columns:1fr;}
+      .project-detail-view,.canvas-container{min-height:2750px;}
+      .header-block{top:8rem;left:6vw;width:88vw;}
+      .main-title{top:15rem;left:6vw;right:auto;width:88vw;text-align:left;font-size:clamp(3.8rem,18vw,7rem);}
+      .item-01{top:29rem;left:6vw;width:88vw;height:70vh;}
+      .item-02{top:82rem;left:6vw;width:88vw;height:55vh;}
+      .item-03{top:121rem;left:6vw;width:88vw;height:48vh;}
+      .middle-right-card{top:155rem;right:6vw;width:60vw;height:40vh;}
+      .item-drawing-1{top:183rem;left:6vw;width:88vw;height:35vh;}
+      .item-drawing-2{top:209rem;right:6vw;width:88vw;height:35vh;}
+      .footer-section{top:236rem;left:6vw;width:88vw;height:58vh;}
+      .overflow-title{bottom:-2.8rem;}
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 1. HOME -->
+  <section id="section-home" class="page-section active">
+    <video autoplay muted loop playsinline class="home-bg-video">
+      <source src="img/video.mov" type="video/mp4">
+    </video>
+    <div class="home-overlay-content">
+      <h1 class="hero-title-interactive" onclick="switchSection('split')">OWN</h1>
+      <p class="hero-subtext">Arquitectura · Viviendas · Mediterráneo</p>
+    </div>
+  </section>
+
+  <!-- 2. SPLIT SCREEN -->
+  <section id="section-split" class="page-section">
+    <div class="split-pane" id="pane-estudio" onclick="switchSection('estudio')">
+      <img src="img/imagen.jpg" alt="Estudio">
+      <div class="split-content">
+        <h2 class="split-title">Estudio</h2>
+        <p class="split-desc">Una arquitectura serena, precisa y ligada al lugar.</p>
+      </div>
+    </div>
+    <div class="split-pane" id="pane-proyectos" onclick="switchSection('proyectos')">
+      <img src="img/miralpeix.jpg" alt="Proyectos">
+      <div class="split-content">
+        <h2 class="split-title">Proyectos</h2>
+        <p class="split-desc">Viviendas, materia, paisaje y luz.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SECCIÓN ESTUDIO -->
+  <section id="section-estudio" class="page-section">
+    <div class="scrollable-content-wrapper">
+      <nav class="nav-bar">
+        <h3 class="brand-logo" onclick="switchSection('split')">OWN</h3>
+        <button class="nav-back-btn" onclick="switchSection('split')">← Volver</button>
+      </nav>
+      <div class="section-inner">
+        <h2 class="section-header-title">Arquitectura con lugar, luz y materia</h2>
+        <p class="section-intro-text">
+          Diseñamos viviendas serenas y precisas, pensadas desde el paisaje, la luz y los materiales naturales. Cada proyecto busca pertenecer a su lugar y envejecer con él.
+        </p>
+
+        <!-- Fotografía Grupal -->
+        <div class="team-group-photo-container">
+          <img src="img/imagen.jpg" alt="Equipo OWN al completo">
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-img-container"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800" alt="Elena Vance"></div>
+            <div class="team-info">
+              <h4 class="team-name">Elena Vance</h4>
+              <p class="team-role">Socia Fundadora</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img-container"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800" alt="Marc Aureli"></div>
+            <div class="team-info">
+              <h4 class="team-name">Marc Aureli</h4>
+              <p class="team-role">Socio Fundador</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-img-container"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800" alt="Sofía Larsson"></div>
+            <div class="team-info">
+              <h4 class="team-name">Sofía Larsson</h4>
+              <p class="team-role">Arquitecta Senior</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SECCIÓN PROYECTOS (4 COLUMNAS) -->
+  <section id="section-proyectos" class="page-section">
+    <div class="scrollable-content-wrapper">
+      <nav class="nav-bar">
+        <h3 class="brand-logo" onclick="switchSection('split')">OWN</h3>
+        <button class="nav-back-btn" onclick="switchSection('split')">← Volver</button>
+      </nav>
+      <div class="section-inner">
+        <h2 class="section-header-title">Casas seleccionadas</h2>
+        
+        <div id="proyectos-radical">
+          <!-- Columna 1 -->
+          <div class="columna-1">
+            <div class="marco" onclick="openProjectDetail(1)">
+              <img src="img/CLARODELUZ/clarodeluz-1.jpg" alt="Casa Claro de Luz" class="imagen-zoom h-lg">
+              <div class="meta"><span>01</span> Casa Claro de Luz</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(5)">
+              <img src="img/BRISADELUZ/brisadeluz-1.jpg" alt="Casa Brisa de Luz" class="imagen-zoom h-sm">
+              <div class="meta"><span>05</span> Casa Brisa de Luz</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(9)">
+              <img src="img/FUYU/fuyu-2.jpg" alt="Casa FUYU" class="imagen-zoom h-md">
+              <div class="meta"><span>09</span> Casa FUYU</div>
+            </div>
+          </div>
+
+          <!-- Columna 2 -->
+          <div class="columna-2">
+            <div class="marco" onclick="openProjectDetail(2)">
+              <img src="img/INFINITA/infinita-1.jpg" alt="CASA INFINITA" class="imagen-zoom h-md">
+              <div class="meta"><span>02</span> CASA INFINITA</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(6)">
+              <img src="img/JP/jp-1.jpg" alt="Casa Claroscuro" class="imagen-zoom h-lg">
+              <div class="meta"><span>06</span> Casa Claroscuro</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(10)">
+              <img src="img/PASSACAGLIA/passacaglia-4.jpg" alt="Casa Passacaglia" class="imagen-zoom h-sm">
+              <div class="meta"><span>10</span> Casa Passacaglia</div>
+            </div>
+          </div>
+
+          <!-- Columna 3 -->
+          <div class="columna-3">
+            <div class="marco" onclick="openProjectDetail(3)">
+              <img src="img/SANTQUIRZE/sq-1.jpg" alt="Casa Invertida" class="imagen-zoom h-sm">
+              <div class="meta"><span>03</span> Casa Invertida</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(7)">
+              <img src="img/VILACLARA/vilaclara-1.jpg" alt="Casa Vilaclara" class="imagen-zoom h-md">
+              <div class="meta"><span>07</span> Casa Vilaclara</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(11)">
+              <img src="img/TARADELL/tara-2.jpg" alt="Casa Taradell" class="imagen-zoom h-lg">
+              <div class="meta"><span>11</span> Casa Taradell</div>
+            </div>
+          </div>
+
+          <!-- Columna 4 -->
+          <div class="columna-4">
+            <div class="marco" onclick="openProjectDetail(4)">
+              <img src="img/BRISA/brisa-2.jpg" alt="Brisa del Alba" class="imagen-zoom h-lg">
+              <div class="meta"><span>04</span> Brisa del Alba</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(8)">
+              <img src="img/cancabasa.jpg" alt="Cancabasa" class="imagen-zoom h-sm">
+              <div class="meta"><span>08</span> Cancabasa</div>
+            </div>
+            <div class="marco" onclick="openProjectDetail(12)">
+              <img src="img/miralpeix.jpg" alt="Miralpeix" class="imagen-zoom h-md">
+              <div class="meta"><span>12</span> Miralpeix</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. VISTA DE DETALLE DE PROYECTO (MATRIZ 15X10 AMPLIADA CON HUECOS PARA DIBUJOS) -->
+  <section id="section-project-detail" class="page-section">
+    <div class="scrollable-content-wrapper">
+      <nav class="nav-bar">
+        <h3 class="brand-logo" onclick="switchSection('split')">OWN</h3>
+        <button class="nav-back-btn" onclick="switchSection('proyectos')">← Volver al Archivo</button>
+      </nav>
+
+      <div class="project-detail-view">
+        <div class="blueprint-top-guides"></div>
+
+        <div class="reg-mark" style="top: 20px; left: 20px;" id="det-ref">+ PROYECTO 01 // OWN</div>
+        <div class="reg-mark" style="top: 20px; right: 100px;">MEDITERRÁNEO / CONTEMPORÁNEO</div>
+
+        <div class="canvas-container">
+          <!-- Header descriptive text block -->
+          <div class="header-block reveal">
+            <strong id="det-subtitle">ESTUDIO / MATRIZ 15X10</strong>
+            Arquitectura concebida desde el lugar, la luz y la materialidad. Cada proyecto busca una relación serena entre interior, paisaje y forma de habitar.
+          </div>
+
+          <!-- Image 01 (B&W with Hover Blueprint) -->
+          <div class="item-01 zoom-container reveal" style="transition-delay: 0.1s;">
+            <img id="det-img-1" src="" alt="Proyecto Arquitectura 01 B&W">
+            <div class="blueprint-sketch-overlay">
+              <svg viewBox="0 0 200 250">
+                <rect x="25" y="30" width="150" height="190" stroke-dasharray="4 2" />
+                <line x1="25" y1="90" x2="175" y2="90" />
+                <line x1="25" y1="160" x2="175" y2="160" />
+                <line x1="90" y1="90" x2="90" y2="220" />
+                <circle cx="132" cy="125" r="22" />
+                <line x1="15" y1="30" x2="15" y2="220" stroke-dasharray="2 2" />
+              </svg>
+              <div class="blueprint-label">MATERIA // LUZ // PAISAJE</div>
+            </div>
+            <div class="image-label">01</div>
+          </div>
+
+          <!-- Central Name / Title -->
+          <div class="main-title reveal" id="det-title" style="transition-delay: 0.2s;">
+            NOMBRE
+          </div>
+
+          <!-- Edge breaking element left -->
+          <div class="edge-element-left reveal" style="transition-delay: 0.15s;">
+            <span>[ ARQUITECTURA / INTERIOR / PAISAJE ]</span>
+          </div>
+
+          <!-- Edge breaking element right -->
+          <div class="edge-element-right reveal" style="transition-delay: 0.1s;">
+            <span>OWN // SELECTED RESIDENCES</span>
+          </div>
+
+          <!-- Center Image 02 -->
+          <div class="item-02 zoom-container reveal">
+            <img id="det-img-2" src="" alt="Proyecto Arquitectura 02">
+            <div class="image-label">02</div>
+          </div>
+
+          <!-- Center Image 03 -->
+          <div class="item-03 zoom-container reveal">
+            <img id="det-img-3" src="" alt="Proyecto Arquitectura 03">
+            <div class="image-label">03</div>
+          </div>
+
+          <!-- Middle right vertical card -->
+          <div class="middle-right-card zoom-container reveal">
+            <img id="det-img-4" src="" alt="Detalle Constructivo">
+            <div class="image-label">04</div>
+          </div>
+
+          <!-- --- NUEVOS ESPACIOS PARA DIBUJOS TÉCNICOS (IZQUIERDA Y DERECHA) --- -->
+          
+          <!-- Dibujo Técnico 01 -->
+          <div class="item-drawing-1 zoom-container reveal" style="transition-delay: 0.15s;">
+            <img id="det-drawing-1" src="" alt="Dibujo Técnico 01">
+            <div class="blueprint-sketch-overlay">
+              <svg viewBox="0 0 300 200">
+                <rect x="20" y="20" width="260" height="160" stroke-dasharray="5 3" />
+                <line x1="20" y1="100" x2="280" y2="100" />
+                <line x1="150" y1="20" x2="150" y2="180" />
+                <circle cx="150" cy="100" r="45" />
+              </svg>
+              <div class="blueprint-label">CROQUIS // PROCESO // MATERIALIDAD</div>
+            </div>
+            <div class="image-label">DIBUJO 01</div>
+          </div>
+
+          <!-- Dibujo Técnico 02 -->
+          <div class="item-drawing-2 zoom-container reveal" style="transition-delay: 0.2s;">
+            <img id="det-drawing-2" src="" alt="Dibujo Técnico 02">
+            <div class="blueprint-sketch-overlay">
+              <svg viewBox="0 0 300 200">
+                <circle cx="150" cy="100" r="70" stroke-dasharray="3 3" />
+                <line x1="50" y1="50" x2="250" y2="150" />
+                <line x1="50" y1="150" x2="250" y2="50" />
+              </svg>
+              <div class="blueprint-label">DETALLE // PROPORCIÓN // LUZ</div>
+            </div>
+            <div class="image-label">DIBUJO 02</div>
+          </div>
+
+          <!-- Large image at the end -->
+          <div class="footer-section reveal">
+            <div class="footer-image">
+              <img id="det-img-footer" src="" alt="Gran Edificio Arquitectura Color">
+              <div class="overflow-title" id="det-overflow-title">OWN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const projectDatabase = {
+      1: {
+        title: "Casa Claro de Luz",
+        subtitle: "BESALÚ, ESPAÑA / 480 M²",
+        ref: "+ REF. 01 // CLARO DE LUZ",
+        img1: "img/CLARODELUZ/clarodeluz-1.jpg",
+        img2: "img/CLARODELUZ/clarodeluz-2.jpg",
+        img3: "img/CLARODELUZ/clarodeluz-3.jpg",
+        img4: "img/CLARODELUZ/clarodeluz-5.jpg",
+        drawing1: "img/CLARODELUZ/croquisclaro-1.jpg", // Puedes cambiar por la ruta de tus dibujos
+        drawing2: "img/CLARODELUZ/croquisclaro-1.jpg", // Puedes cambiar por la ruta de tus dibujos
+        footerImg: "img/CLARODELUZ/clarodeluz-6.jpg",
+        overflow: "CLARO LUZ"
+      },
+      2: {
+        title: "Casa Infinita",
+        subtitle: "BARCELONA, ESPAÑA / 320 M²",
+        ref: "+ REF. 02 // INFINITA",
+        img1: "img/INFINITA/infinita-1.jpg",
+        img2: "img/INFINITA/infinita-2.jpg",
+        img3: "img/INFINITA/infinita-5.jpg",
+        img4: "img/INFINITA/infinita-7.jpg",
+        drawing1: "img/INFINITA/infinita-2.jpg",
+        drawing2: "img/INFINITA/infinita-5.jpg",
+        footerImg: "img/INFINITA/infinita-1.jpg",
+        overflow: "INFINITA"
+      },
+      3: {
+        title: "Casa Invertida",
+        subtitle: "SANT QUIRZE, ESPAÑA / 290 M²",
+        ref: "+ REF. 03 // INVERTIDA",
+        img1: "img/SANTQUIRZE/sq-1.jpg",
+        img2: "img/SANTQUIRZE/sq-2.jpg",
+        img3: "img/SANTQUIRZE/sq-3.jpg",
+        img4: "img/SANTQUIRZE/sq-5.jpg",
+        drawing1: "img/SANTQUIRZE/sq-2.jpg",
+        drawing2: "img/SANTQUIRZE/sq-3.jpg",
+        footerImg: "img/SANTQUIRZE/sq-1.jpg",
+        overflow: "INVERTIDA"
+      },
+      4: {
+        title: "Brisa del Alba",
+        subtitle: "CANYELLES, ESPAÑA / 440 M²",
+        ref: "+ REF. 04 // BRISA",
+        img1: "img/BRISA/brisa-2.jpg",
+        img2: "img/BRISA/brisa-3.jpg",
+        img3: "img/BRISA/brisa-4.jpg",
+        img4: "img/BRISA/brisa-6.jpg",
+        drawing1: "img/BRISA/brisa-3.jpg",
+        drawing2: "img/BRISA/brisa-4.jpg",
+        footerImg: "img/BRISA/brisa-2.jpg",
+        overflow: "BRISA ALBA"
+      },
+      5: {
+        title: "Casa Brisa de Luz",
+        subtitle: "SANT PERE DE RIBES / 650 M²",
+        ref: "+ REF. 05 // BRISA LUZ",
+        img1: "img/BRISADELUZ/brisadeluz-1.jpg",
+        img2: "img/BRISADELUZ/brisadeluz-3.jpg",
+        img3: "img/BRISADELUZ/brisadeluz-4.jpg",
+        img4: "img/BRISADELUZ/brisadeluz-1.jpg",
+        drawing1: "img/BRISADELUZ/brisadeluz-3.jpg",
+        drawing2: "img/BRISADELUZ/brisadeluz-4.jpg",
+        footerImg: "img/BRISADELUZ/brisadeluz-1.jpg",
+        overflow: "BRISA LUZ"
+      },
+      6: {
+        title: "Casa Claroscuro",
+        subtitle: "SARRIÀ, BARCELONA / 750 M²",
+        ref: "+ REF. 06 // CLAROSCURO",
+        img1: "img/JP/jp-1.jpg",
+        img2: "img/JP/jp-2.jpg",
+        img3: "img/JP/jp-3.jpg",
+        img4: "img/JP/jp-4.jpg",
+        drawing1: "img/JP/jp-2.jpg",
+        drawing2: "img/JP/jp-3.jpg",
+        footerImg: "img/JP/jp-1.jpg",
+        overflow: "CLAROSCURO"
+      },
+      7: {
+        title: "Casa Vilaclara",
+        subtitle: "CANYELLES, ESPAÑA / 600 M²",
+        ref: "+ REF. 07 // VILACLARA",
+        img1: "img/VILACLARA/vilaclara-1.jpg",
+        img2: "img/VILACLARA/vilaclara-3.jpg",
+        img3: "img/VILACLARA/vilaclara-1.jpg",
+        img4: "img/VILACLARA/vilaclara-3.jpg",
+        drawing1: "img/VILACLARA/vilaclara-3.jpg",
+        drawing2: "img/VILACLARA/vilaclara-1.jpg",
+        footerImg: "img/VILACLARA/vilaclara-1.jpg",
+        overflow: "VILACLARA"
+      },
+      8: {
+        title: "Casa Cancabasa",
+        subtitle: "CÁDIZ, ESPAÑA / 820 M²",
+        ref: "+ REF. 08 // CANCABASA",
+        img1: "img/cancabasa.jpg",
+        img2: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2000",
+        img3: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000",
+        img4: "img/cancabasa.jpg",
+        drawing1: "img/cancabasa.jpg",
+        drawing2: "img/cancabasa.jpg",
+        footerImg: "img/cancabasa.jpg",
+        overflow: "CANCABASA"
+      },
+      9: {
+        title: "Casa FUYU",
+        subtitle: "SANT FELIU / 410 M²",
+        ref: "+ REF. 09 // FUYU",
+        img1: "img/FUYU/fuyu-2.jpg",
+        img2: "img/FUYU/fuyu-4.jpg",
+        img3: "img/FUYU/fuyu-1.jpg",
+        img4: "img/FUYU/fuyu-3.jpg",
+        drawing1: "img/FUYU/fuyu-4.jpg",
+        drawing2: "img/FUYU/fuyu-1.jpg",
+        footerImg: "img/FUYU/fuyu-2.jpg",
+        overflow: "FUYU"
+      },
+      10: {
+        title: "Casa Passacaglia",
+        subtitle: "BARCELONA, ESPAÑA / 520 M²",
+        ref: "+ REF. 10 // PASSACAGLIA",
+        img1: "img/PASSACAGLIA/passacaglia-4.jpg",
+        img2: "img/PASSACAGLIA/passacaglia-5.jpg",
+        img3: "img/PASSACAGLIA/passacaglia-2.jpg",
+        img4: "img/PASSACAGLIA/passacaglia-3.jpg",
+        drawing1: "img/PASSACAGLIA/passacaglia-5.jpg",
+        drawing2: "img/PASSACAGLIA/passacaglia-2.jpg",
+        footerImg: "img/PASSACAGLIA/passacaglia-4.jpg",
+        overflow: "PASSACAGLIA"
+      },
+      11: {
+        title: "Casa Taradell",
+        subtitle: "MÁLAGA, ESPAÑA / 510 M²",
+        ref: "+ REF. 11 // TARADELL",
+        img1: "img/TARADELL/tara-2.jpg",
+        img2: "img/TARADELL/tara-4.jpg",
+        img3: "img/TARADELL/tara-1.jpg",
+        img4: "img/TARADELL/tara-3.jpg",
+        drawing1: "img/TARADELL/tara-4.jpg",
+        drawing2: "img/TARADELL/tara-1.jpg",
+        footerImg: "img/TARADELL/tara-2.jpg",
+        overflow: "TARADELL"
+      },
+      12: {
+        title: "Casa Miralpeix",
+        subtitle: "BILBAO, ESPAÑA / 890 M²",
+        ref: "+ REF. 12 // MIRALPEIX",
+        img1: "img/miralpeix.jpg",
+        img2: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000",
+        img3: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2000",
+        img4: "img/miralpeix.jpg",
+        drawing1: "img/miralpeix.jpg",
+        drawing2: "img/miralpeix.jpg",
+        footerImg: "img/miralpeix.jpg",
+        overflow: "MIRALPEIX"
+      }
+    };
+
+    function switchSection(sectionId) {
+      document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById('section-' + sectionId);
+      if(target) {
+        target.classList.add('active');
+        const scroller = target.querySelector('.scrollable-content-wrapper');
+        if(scroller) scroller.scrollTop = 0;
+      }
+    }
+
+    function openProjectDetail(id) {
+      const p = projectDatabase[id];
+      if(!p) return;
+
+      document.getElementById('det-ref').innerText = p.ref;
+      document.getElementById('det-subtitle').innerHTML = `<strong>OWN / RESIDENCIAL</strong>${p.subtitle}`;
+      document.getElementById('det-title').innerText = p.title;
+      document.getElementById('det-img-1').src = p.img1;
+      document.getElementById('det-img-2').src = p.img2;
+      document.getElementById('det-img-3').src = p.img3;
+      document.getElementById('det-img-4').src = p.img4;
+      document.getElementById('det-drawing-1').src = p.drawing1;
+      document.getElementById('det-drawing-2').src = p.drawing2;
+      document.getElementById('det-img-footer').src = p.footerImg;
+      document.getElementById('det-overflow-title').innerText = p.overflow;
+
+      switchSection('project-detail');
+
+      setTimeout(() => {
+        const detailSec = document.getElementById('section-project-detail');
+        const reveals = detailSec.querySelectorAll('.reveal');
+        reveals.forEach(el => el.classList.remove('active'));
+        
+        setTimeout(() => {
+          reveals.forEach(el => el.classList.add('active'));
+        }, 50);
+      }, 50);
+    }
+
+    const paneE = document.getElementById('pane-estudio');
+    const paneP = document.getElementById('pane-proyectos');
+    if(window.innerWidth > 800) {
+      paneE.addEventListener('mouseenter', () => { paneE.style.flex = '2.5'; paneP.style.flex = '0.5'; });
+      paneE.addEventListener('mouseleave', () => { paneE.style.flex = '1'; paneP.style.flex = '1'; });
+      paneP.addEventListener('mouseenter', () => { paneP.style.flex = '2.5'; paneE.style.flex = '0.5'; });
+      paneP.addEventListener('mouseleave', () => { paneP.style.flex = '1'; paneE.style.flex = '1'; });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -15% 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

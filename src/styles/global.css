@@ -117,7 +117,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 767px) {
   .site-header { height: 72px; padding-inline: 6%; }
   .wordmark { font-size: 26px; }
-  .wordmark span { display: none; }
+  .wordmark span { font-size: 26px; }
   .site-header nav { font-size: 10px; }
   .page-padding { padding: 118px 6% 60px; }
   .section-heading { display: block; margin-bottom: 45px; padding-bottom: 20px; }

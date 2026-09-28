@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Entrance from '../components/Entrance';
+import { entranceImages } from '../lib/projectImages';
+const images = await entranceImages();
 ---
-<Layout title="Explorar | OWN Architecture" intro><Entrance selector client:load /></Layout>
+<Layout title="Explorar | OWN Architecture" intro><Entrance selector images={images} client:load /></Layout>

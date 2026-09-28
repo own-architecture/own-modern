@@ -1,0 +1,510 @@
+{
+  "images": [
+    {
+      "source": "images/INFINITA/ES1.png",
+      "asset": "casa-infinita/es1.webp",
+      "width": 3200,
+      "height": 1297,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/INFINITA/image1.png",
+      "asset": "casa-infinita/image1.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/INFINITA/image2.png",
+      "asset": "casa-infinita/image2.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/INFINITA/image3.png",
+      "asset": "casa-infinita/image3.webp",
+      "width": 1496,
+      "height": 1051,
+      "kind": "photo"
+    },
+    {
+      "source": "images/INFINITA/image4.png",
+      "asset": "casa-infinita/image4.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/INFINITA/image5.png",
+      "asset": "casa-infinita/image5.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/INFINITA/image6.png",
+      "asset": "casa-infinita/image6.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/INFINITA/image.png",
+      "asset": "casa-infinita/image.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/FUYU/ChatGPT Image 7 sept 2026, 11_47_54 a.m..png",
+      "asset": "fuyu/chatgpt-image-7-sept-2026-11-47-54-a-m.webp",
+      "width": 1535,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/FUYU/ESQUEMAS.jpg",
+      "asset": "fuyu/esquemas.webp",
+      "width": 3200,
+      "height": 2133,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/FUYU/image1.png",
+      "asset": "fuyu/image1.webp",
+      "width": 1717,
+      "height": 916,
+      "kind": "photo"
+    },
+    {
+      "source": "images/FUYU/image2.png",
+      "asset": "fuyu/image2.webp",
+      "width": 1497,
+      "height": 1051,
+      "kind": "photo"
+    },
+    {
+      "source": "images/FUYU/image3.png",
+      "asset": "fuyu/image3.webp",
+      "width": 1774,
+      "height": 887,
+      "kind": "photo"
+    },
+    {
+      "source": "images/FUYU/image4.png",
+      "asset": "fuyu/image4.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/FUYU/image7.png",
+      "asset": "fuyu/image7.webp",
+      "width": 1774,
+      "height": 887,
+      "kind": "photo"
+    },
+    {
+      "source": "images/FUYU/image.png",
+      "asset": "fuyu/image.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/PASSACAGLIA/ESQ1.jpg",
+      "asset": "passacaglia/esq1.webp",
+      "width": 3200,
+      "height": 2133,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/PASSACAGLIA/image3.png",
+      "asset": "passacaglia/image3.webp",
+      "width": 1634,
+      "height": 962,
+      "kind": "photo"
+    },
+    {
+      "source": "images/PASSACAGLIA/image8.png",
+      "asset": "passacaglia/image8.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/PASSACAGLIA/image9.png",
+      "asset": "passacaglia/image9.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/PASSACAGLIA/image.png",
+      "asset": "passacaglia/image.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/VILACLARA/image1.png",
+      "asset": "vila-clara/image1.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/VILACLARA/image2.png",
+      "asset": "vila-clara/image2.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/VILACLARA/image4.png",
+      "asset": "vila-clara/image4.webp",
+      "width": 1540,
+      "height": 1021,
+      "kind": "photo"
+    },
+    {
+      "source": "images/VILACLARA/image5.png",
+      "asset": "vila-clara/image5.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/VILACLARA/image.png",
+      "asset": "vila-clara/image.webp",
+      "width": 1672,
+      "height": 941,
+      "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/image1.png",
+      "asset": "claro-de-luz/image1.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/image2.png",
+      "asset": "claro-de-luz/image2.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/image3.png",
+      "asset": "claro-de-luz/image3.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/image4.png",
+      "asset": "claro-de-luz/image4.webp",
+      "width": 1871,
+      "height": 840,
+      "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/image5.png",
+      "asset": "claro-de-luz/image5.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/image6.png",
+      "asset": "claro-de-luz/image6.webp",
+      "width": 1086,
+      "height": 1448,
+      "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/image.png",
+      "asset": "claro-de-luz/image.webp",
+      "width": 1614,
+      "height": 975,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/image1.png",
+      "asset": "brisa-de-luz/image1.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/image2.png",
+      "asset": "brisa-de-luz/image2.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/image3.png",
+      "asset": "brisa-de-luz/image3.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/image4.png",
+      "asset": "brisa-de-luz/image4.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/image5.png",
+      "asset": "brisa-de-luz/image5.webp",
+      "width": 1535,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/image.png",
+      "asset": "brisa-de-luz/image.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image0.png",
+      "asset": "brisa-de-luz/op-1/image0.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image1.png",
+      "asset": "brisa-de-luz/op-1/image1.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image2.png",
+      "asset": "brisa-de-luz/op-1/image2.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image3.png",
+      "asset": "brisa-de-luz/op-1/image3.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image4.png",
+      "asset": "brisa-de-luz/op-1/image4.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image5.png",
+      "asset": "brisa-de-luz/op-1/image5.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image7.png",
+      "asset": "brisa-de-luz/op-1/image7.webp",
+      "width": 1672,
+      "height": 941,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISADELUZ/OP 1/image.png",
+      "asset": "brisa-de-luz/op-1/image.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISA/brisa1.png",
+      "asset": "brisa-del-alba/brisa1.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISA/brisa2.png",
+      "asset": "brisa-del-alba/brisa2.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISA/brisa3.png",
+      "asset": "brisa-del-alba/brisa3.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISA/brisa4.png",
+      "asset": "brisa-del-alba/brisa4.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/BRISA/esquemabrisa.jpg",
+      "asset": "brisa-del-alba/esquemabrisa.webp",
+      "width": 3200,
+      "height": 2133,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/JP/image1.png",
+      "asset": "claroscuro/image1.webp",
+      "width": 1447,
+      "height": 1087,
+      "kind": "photo"
+    },
+    {
+      "source": "images/JP/image2.png",
+      "asset": "claroscuro/image2.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/JP/image3.png",
+      "asset": "claroscuro/image3.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/JP/image.png",
+      "asset": "claroscuro/image.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTQUIRZE/ESQ1.jpg",
+      "asset": "casa-invertida/esq1.webp",
+      "width": 3200,
+      "height": 2133,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/SANTQUIRZE/image1.png",
+      "asset": "casa-invertida/image1.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTQUIRZE/image2.png",
+      "asset": "casa-invertida/image2.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTQUIRZE/image3.png",
+      "asset": "casa-invertida/image3.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTQUIRZE/image4.png",
+      "asset": "casa-invertida/image4.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTQUIRZE/image5.png",
+      "asset": "casa-invertida/image5.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTQUIRZE/image.png",
+      "asset": "casa-invertida/image.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTANDER 3/image1.png",
+      "asset": "santander-3/image1.webp",
+      "width": 1533,
+      "height": 1026,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTANDER 3/image3.png",
+      "asset": "santander-3/image3.webp",
+      "width": 1533,
+      "height": 1026,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTANDER 3/image4.png",
+      "asset": "santander-3/image4.webp",
+      "width": 1533,
+      "height": 1026,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTANDER 3/image5.png",
+      "asset": "santander-3/image5.webp",
+      "width": 1024,
+      "height": 1536,
+      "kind": "photo"
+    },
+    {
+      "source": "images/SANTANDER 3/image.png",
+      "asset": "santander-3/image.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "photo"
+    }
+  ],
+  "videos": [
+    {
+      "source": "images/INFINITA/INFINITA.mov",
+      "url": "/videos/casa-infinita/infinita.mov"
+    },
+    {
+      "source": "images/INFINITA/VIDEO INFINITA .mov",
+      "url": "/videos/casa-infinita/video-infinita.mov"
+    },
+    {
+      "source": "images/FUYU/02_planta_soleamiento_editorial_moderno.mp4",
+      "url": "/videos/fuyu/02-planta-soleamiento-editorial-moderno.mp4"
+    },
+    {
+      "source": "images/FUYU/0908(3).mov",
+      "url": "/videos/fuyu/0908-3.mov"
+    },
+    {
+      "source": "images/CLARODELUZ/VIDEOINICIO.mp4",
+      "url": "/videos/claro-de-luz/videoinicio.mp4"
+    },
+    {
+      "source": "images/CLARODELUZ/magnific_create-a-short-photoreali_If5vOYetvE.mp4",
+      "url": "/videos/claro-de-luz/magnific-create-a-short-photoreali-if5voyetve.mp4"
+    },
+    {
+      "source": "public/media/inicio.mp4",
+      "url": "/videos/inicio.mp4"
+    }
+  ]
+}

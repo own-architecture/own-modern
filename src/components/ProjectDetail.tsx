@@ -3,10 +3,10 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import type { Project } from '../data/projects';
+import type { PreparedProject, Project } from '../data/projects';
 import Diagram from './Diagram';
 
-export default function ProjectDetail({ project, next }: { project: Project; next: Project }) {
+export default function ProjectDetail({ project, next }: { project: PreparedProject; next: Pick<Project, 'slug' | 'title'> }) {
   const root = useRef<HTMLDivElement>(null);
   const [tab, setTab] = useState<'photos' | 'text'>('photos');
   const touch = useRef<{ x: number; y: number } | null>(null);
@@ -60,10 +60,10 @@ export default function ProjectDetail({ project, next }: { project: Project; nex
       expand(target.closest('.photo-column') ? 'photos' : 'text');
     }}>
       <section className="photo-column" aria-label="Fotografías">
-        {project.photos.map((src, i) => <figure key={src} className="photo-outer"><div className="photo-frame"><img src={src} alt={`${project.title}, vista ${i + 1}`} width="1500" height="1000" loading={i ? 'lazy' : 'eager'} onLoad={() => ScrollTrigger.refresh()} /></div><figcaption>{String(i + 1).padStart(2, '0')} / {project.title}</figcaption></figure>)}
+        {project.photos.map(({ label, ...image }, i) => <figure key={image.src} className="photo-outer"><div className="photo-frame"><img {...image} alt={`${project.title}, vista ${i + 1}${label ? `, ${label}` : ''}`} loading={i ? 'lazy' : 'eager'} decoding="async" onLoad={() => ScrollTrigger.refresh()} /></div><figcaption>{String(i + 1).padStart(2, '0')} / {project.title}{label && ` / ${label}`}</figcaption></figure>)}
       </section>
       <section className="text-column" aria-label="Descripción del proyecto"><div className="text-column-inner">
-        <div className="project-title"><span className="eyebrow">Residencial / {project.location}</span><h1>{project.title}</h1>{project.statement && <p className="project-statement">{project.statement}</p>}</div>
+        <div className="project-title"><span className="eyebrow">Residencial{project.location && ` / ${project.location}`}</span><h1>{project.title}</h1>{project.statement && <p className="project-statement">{project.statement}</p>}</div>
         {project.sections[0] && <section className="project-copy"><h2>{project.sections[0].title}</h2><p>{project.sections[0].text}</p></section>}
         <Diagram steps={project.steps}/>
         {project.sections.slice(1).map(section => <section className="project-copy" key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import { imageSource } from '../lib/projectImages';
 ---
 <Layout title="Estudio | OWN Architecture" dark>
   <section class="studio-page page-padding">
@@ -10,7 +12,7 @@ import Footer from '../components/Footer.astro';
       <div data-reveal><h2 class="eyebrow">01 / Filosofía</h2><p>En OWN abordamos cada proyecto desde su relación con el territorio, el clima, la orientación y la forma de habitar.</p><p>Buscamos espacios serenos y atemporales en los que arquitectura, paisaje y materia formen parte de una misma experiencia.</p></div>
       <div data-reveal><h2 class="eyebrow">02 / Método</h2><p>Entendemos la arquitectura como una disciplina integral. Desde los primeros croquis hasta la ejecución de obra, trabajamos todas las escalas como parte de una misma idea.</p><p>Luz, proporción, estructura, materialidad y detalle se desarrollan simultáneamente.</p></div>
     </div>
-    <figure class="studio-image" data-reveal><img src="/media/image6.jpeg" alt="Relación entre arquitectura, agua y jardín" width="1500" height="999" loading="lazy" /></figure>
+    <figure class="studio-image" data-reveal><Image src={imageSource('claro-de-luz/image5.webp')} alt="Casa Claro de Luz: arquitectura, agua y jardín" widths={[480, 768, 1200, 1536]} sizes="90vw" format="webp" quality={85} loading="lazy" /></figure>
   </section>
   <Footer />
 </Layout>
