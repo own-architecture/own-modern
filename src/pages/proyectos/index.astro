@@ -12,7 +12,13 @@ import { imageSource } from '../../lib/projectImages';
       {projects.map((project, i) => <article class="project-card" data-reveal>
         <a href={`/proyectos/${project.slug}/`} class="project-swatch" aria-label={`Ver ${project.title}`}>
           <Image src={imageSource(project.cover)} alt={project.title} loading={i < 3 ? 'eager' : 'lazy'} widths={[480, 768, 1200]} sizes="(max-width: 767px) 88vw, 30vw" format="webp" quality={85} />
-          <div class="swatch-caption"><h2>{project.title}</h2><span aria-hidden="true">↗</span></div>
+          <div class="swatch-caption"><h2>{project.title}</h2> <svg
+    class="arrow-icon"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path d="M7 17L17 7M9 7h8v8" />
+  </svg></div>
         </a>
         <div class="project-meta"><span>{String(i + 1).padStart(2, '0')}</span><span>{project.location}</span></div>
       </article>)}
