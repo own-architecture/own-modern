@@ -12,8 +12,8 @@ import { imageSource } from '../../lib/projectImages';
       {projects.map((project, i) => <article class="project-card" data-reveal>
         <a href={`/proyectos/${project.slug}/`} class="project-swatch" aria-label={`Ver ${project.title}`}>
           <Image src={imageSource(project.cover)} alt={project.title} loading={i < 3 ? 'eager' : 'lazy'} widths={[480, 768, 1200]} sizes="(max-width: 767px) 88vw, 30vw" format="webp" quality={85} />
-          <div class="swatch-caption"><h2>{project.title}</h2> <svg
-    class="arrow-icon"
+          <div class="swatch-caption"><h2>{project.title}</h2><span class="hidden md:inline" aria-hidden="true">↗</span><svg
+    class="arrow-icon inline md:hidden"
     viewBox="0 0 24 24"
     aria-hidden="true"
   >

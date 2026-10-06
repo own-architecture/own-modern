@@ -164,10 +164,10 @@ img {
 }
 .cursor-dot {
   position: fixed;
-  top: -4px;
-  left: -4px;
-  width: 8px;
-  height: 8px;
+  top: -64px;
+  left: -64px;
+  width: 128px;
+  height: 128px;
   border-radius: 50%;
   background: #fff;
   mix-blend-mode: difference;
@@ -175,6 +175,7 @@ img {
   pointer-events: none;
   visibility: hidden;
   will-change: transform;
+  transform: scale(0.0625);
 }
 .cursor-dot.on-photo {
   background: #fff;

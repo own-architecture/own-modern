@@ -35,7 +35,7 @@ const path = Astro.url.pathname;
         const moveX = gsap.quickTo(dot, 'x', { duration: reduced ? 0 : .12, ease: 'power3.out' });
         const moveY = gsap.quickTo(dot, 'y', { duration: reduced ? 0 : .12, ease: 'power3.out' });
         let visible = false;
-        let currentScale = 1;
+        let currentScale = .0625;
         let idleTimer: ReturnType<typeof setTimeout> | undefined;
         const setSize = (scale: number, duration = .25) => {
           if (scale === currentScale) return;
@@ -49,11 +49,11 @@ const path = Astro.url.pathname;
           dot.classList.toggle('on-diagram', onDiagram);
           const large = target.closest('img, .photo-frame, .project-swatch, .studio-image, .diagram-stage, .split-pane');
           const selectable = target.closest('a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [role="button"], [role="link"], [tabindex]:not([tabindex="-1"])');
-          const scale = onDiagram ? 5 : large || selectable ? 9 : 1;
+          const scale = onDiagram ? .3125 : large || selectable ? .5625 : .0625;
           setSize(scale);
           clearTimeout(idleTimer);
-          if (onPhoto) idleTimer = setTimeout(() => setSize(3, .45), 600);
-          else if (onDiagram) idleTimer = setTimeout(() => setSize(1, .45), 600);
+          if (onPhoto) idleTimer = setTimeout(() => setSize(.1875, .45), 600);
+          else if (onDiagram) idleTimer = setTimeout(() => setSize(.0625, .45), 600);
         };
         const over = (event: PointerEvent) => resize(event.target as Element);
         const move = (event: PointerEvent) => {
