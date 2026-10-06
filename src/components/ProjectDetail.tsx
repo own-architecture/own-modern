@@ -27,7 +27,7 @@ export default function ProjectDetail({ project, next }: { project: PreparedProj
     if (activeSide.current === side) return;
     activeSide.current = side;
     // Animate one unitless percentage, never computed pixel tracks into percent tracks.
-    gsap.to('.detail-columns', { '--photo-share': side === 'photos' ? 62 : side === 'text' ? 42 : 55, duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1.1, ease: 'power2.inOut', overwrite: true });
+    gsap.to('.detail-columns', { '--photo-share': side === 'photos' ? 65 : side === 'text' ? 35 : 55, duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1.1, ease: 'power2.inOut', overwrite: true });
   });
   const switchTab = (nextTab: 'photos' | 'text') => {
     if (nextTab === tab) return;
