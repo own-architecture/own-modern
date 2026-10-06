@@ -235,7 +235,9 @@ img {
   line-height: 1;
   border: 0;
   background: none;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .intro-own:hover {
   transform: scale(1.025);
@@ -306,10 +308,10 @@ img {
   filter: grayscale(1);
   transition:
     transform 1.3s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.8s ease;
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .studio-pane .pane-image {
-  opacity: 0.27;
+  opacity: 0.15;
 }
 .projects-pane .pane-image {
   opacity: 0.23;
@@ -508,7 +510,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @media (hover: hover) {
   .photo-frame:hover img {
@@ -526,9 +528,12 @@ img {
   padding: 65px 0 90px;
   border-left: 1px solid #ddd;
 }
+.detail-columns:has(.text-column:hover) .project-title h1 {
+  font-size: 68px;
+}
 .text-column-inner {
-  width: calc(38cqw - 64px);
-  max-width: 620px;
+  width: min(760px, calc(100% - 64px));
+  max-width: none;
   margin-inline: auto;
 }
 .project-title h1 {

@@ -26,8 +26,13 @@ export default function ProjectDetail({ project, next }: { project: PreparedProj
     if (!matchMedia('(min-width: 768px) and (hover: hover)').matches) return;
     if (activeSide.current === side) return;
     activeSide.current = side;
-    // Animate one unitless percentage, never computed pixel tracks into percent tracks.
-    gsap.to('.detail-columns', { '--photo-share': side === 'photos' ? 65 : side === 'text' ? 35 : 55, duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1.1, ease: 'power2.inOut', overwrite: true });
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const duration = reduced ? 0 : 1.8;
+    const timeline = gsap.timeline({ defaults: { duration, ease: 'power2.inOut', overwrite: true } });
+    timeline
+      .to('.detail-columns', { '--photo-share': side === 'photos' ? 90 : side === 'text' ? 10 : 55 }, 0)
+      .to('.text-column', { filter: side === 'photos' ? 'blur(8px)' : 'blur(0px)' }, 0)
+      .to('.photo-frame img', { opacity: side === 'text' ? 0.5 : 1 }, 0);
   });
   const switchTab = (nextTab: 'photos' | 'text') => {
     if (nextTab === tab) return;
