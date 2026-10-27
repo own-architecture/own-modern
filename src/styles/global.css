@@ -503,6 +503,84 @@ img {
   border-radius: 4px;
   height: 38cqw;
 }
+.photo-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: inherit;
+}
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  touch-action: auto;
+}
+.photo-lightbox::backdrop {
+  background: rgb(0 0 0 / 90%);
+}
+.photo-lightbox-stage {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.photo-lightbox-canvas {
+  display: grid;
+  place-items: center;
+  width: max-content;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 80px 16px;
+}
+.photo-lightbox-canvas img {
+  width: calc(min(100vw - 32px, (100dvh - 160px) * var(--image-ratio)) * var(--photo-zoom));
+  max-width: none;
+  height: auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.photo-lightbox-controls {
+  position: absolute;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  display: flex;
+  gap: 8px;
+}
+.photo-lightbox-controls button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #ffffff40;
+  border-radius: 50%;
+  background: #171717e6;
+  color: #fff;
+}
+.photo-lightbox-caption {
+  position: absolute;
+  right: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 20px;
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none;
+}
 .photo-outer:nth-child(2) .photo-frame {
   height: 54cqw;
 }

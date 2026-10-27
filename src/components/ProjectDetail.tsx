@@ -5,10 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import type { PreparedProject, Project } from '../data/projects';
 import Diagram from './Diagram';
+import PhotoLightbox from './PhotoLightbox';
 
 export default function ProjectDetail({ project, next }: { project: PreparedProject; next: Pick<Project, 'slug' | 'title'> }) {
   const root = useRef<HTMLDivElement>(null);
   const [tab, setTab] = useState<'photos' | 'text'>('photos');
+  const [activePhoto, setActivePhoto] = useState<number | null>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
   const suppressClick = useRef(0);
   const activeSide = useRef<'photos' | 'text' | null>(null);
@@ -41,9 +43,11 @@ export default function ProjectDetail({ project, next }: { project: PreparedProj
   return <div ref={root} className="project-detail" data-tab={tab} onClickCapture={e => {
     if (Date.now() < suppressClick.current) { e.preventDefault(); e.stopPropagation(); }
   }} onPointerDown={e => {
+    if (activePhoto !== null) return;
     if (e.pointerType !== 'touch' || !e.isPrimary) return;
     touch.current = { x: e.clientX, y: e.clientY };
   }} onPointerCancel={() => { touch.current = null; }} onPointerUp={e => {
+    if (activePhoto !== null) return;
     if (!touch.current || matchMedia('(min-width: 768px)').matches) return;
     const dx = e.clientX - touch.current.x;
     const dy = e.clientY - touch.current.y;
@@ -65,7 +69,9 @@ export default function ProjectDetail({ project, next }: { project: PreparedProj
       expand(target.closest('.photo-column') ? 'photos' : 'text');
     }}>
       <section className="photo-column" aria-label="Fotografías">
-        {project.photos.map(({ label, ...image }, i) => <figure key={image.src} className="photo-outer"><div className="photo-frame"><img {...image} alt={`${project.title}, vista ${i + 1}${label ? `, ${label}` : ''}`} loading={i ? 'lazy' : 'eager'} decoding="async" onLoad={() => ScrollTrigger.refresh()} /></div><figcaption>{String(i + 1).padStart(2, '0')} / {project.title}{label && ` / ${label}`}</figcaption></figure>)}
+        {project.photos.map(({ label, ...image }, i) => <figure key={image.src} className="photo-outer"><button type="button" className="photo-frame photo-open" aria-label={`Ampliar fotografía ${i + 1} de ${project.title}`} aria-haspopup="dialog" onClick={() => {
+          setActivePhoto(i);
+        }}><img {...image} alt={`${project.title}, vista ${i + 1}${label ? `, ${label}` : ''}`} loading={i ? 'lazy' : 'eager'} decoding="async" onLoad={() => ScrollTrigger.refresh()} /></button><figcaption>{String(i + 1).padStart(2, '0')} / {project.title}{label && ` / ${label}`}</figcaption></figure>)}
       </section>
       <section className="text-column" aria-label="Descripción del proyecto"><div className="text-column-inner">
         <div className="project-title"><span className="eyebrow">Residencial{project.location && ` / ${project.location}`}</span><h1>{project.title}</h1>{project.statement && <p className="project-statement">{project.statement}</p>}</div>
@@ -75,5 +81,6 @@ export default function ProjectDetail({ project, next }: { project: PreparedProj
         <a href={`/proyectos/${next.slug}/`} className="next-project"><span className="eyebrow">Siguiente proyecto</span><span>{next.title}<ArrowRight size={25}/></span></a>
       </div></section>
     </div>
+    {activePhoto !== null && <PhotoLightbox photo={project.photos[activePhoto]} title={project.title} index={activePhoto} onClose={() => setActivePhoto(null)} />}
   </div>;
 }
