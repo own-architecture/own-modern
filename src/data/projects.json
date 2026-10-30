@@ -190,7 +190,7 @@
   {
     "slug": "claro-de-luz",
     "title": "Claro de Luz",
-    "location": "Besalú",
+    "location": "Sant Cugat del Vallès",
     "cover": "claro-de-luz/image5.webp",
     "photos": [
       {
@@ -222,28 +222,44 @@
         "label": ""
       }
     ],
-    "statement": "Casa Claro de Luz se sitúa en Besalú y se organiza a partir de una planta en L que protege un jardín interior y lo convierte en el centro de la vivienda. Entre el porche, la vegetación y la lámina de agua se crea un espacio exterior íntimo y tranquilo, alrededor del cual se desarrolla la vida de la casa.",
+    "statement": "Un claro de luz en medio del bosque de casas.",
     "sections": [
       {
-        "title": "Privacidad y apertura",
-        "text": "La vivienda busca un equilibrio entre privacidad y apertura. Las fachadas orientadas hacia las parcelas vecinas son más cerradas, mientras que los espacios interiores se abren hacia el jardín mediante grandes ventanales. Esta disposición permite disfrutar de la luz natural y del exterior manteniendo la intimidad de la vivienda."
+        "title": "Apartarse hacia los bordes",
+        "text": "La parcela estaba encajonada entre vecinos. Las casas de alrededor ocupan el centro de sus solares y dejan el jardín como lo que sobra. Esta hace lo contrario: se aparta hacia los bordes y se vuelve sobre un patio, un porche y una lámina de agua."
       },
       {
-        "title": "Luz y sombra",
-        "text": "En la planta superior se sitúan las estancias privadas, orientadas para aprovechar la entrada de luz a lo largo del día. Ventanales, celosías y voladizos ayudan a controlar la incidencia del sol y aportan diferentes grados de luz y sombra según el momento y la época del año."
+        "title": "El vacío en el centro",
+        "text": "Ese vacío es el centro de la casa. La sala, la cocina y el porche se abren a él, y la luz entra por el medio, como en un claro del bosque: un refugio de calma dentro del ajetreo de casas y de vida que lo rodea."
       },
       {
-        "title": "Vivir hacia el jardín",
-        "text": "Con una arquitectura sencilla y contenida, Casa Claro de Luz propone una forma de vivir volcada hacia el interior de la parcela, donde el jardín, la luz y la privacidad definen el carácter de la casa."
+        "title": "Entrar despacio",
+        "text": "Se entra despacio. Los muros se inclinan y acompañan el paso, sin una sola curva, pero como si las hubiera. La escalera, pensada como una escultura, se ve a contraluz, con luz a los dos lados. Al final del recorrido, el patio y el porche."
+      },
+      {
+        "title": "La luz de cada estancia",
+        "text": "Arriba, cada habitación tiene su propio carácter. La que da al norte se retrasa y gana una terraza íntima. La de poniente inclina su ventana para buscar las vistas. La suite se protege con una celosía, y en el patio de la habitación secundaria es un árbol el que tamiza la luz."
       }
     ],
     "steps": [
       {
-        "src": "claro-de-luz/esbozo.webp",
-        "label": "Esbozo del proyecto"
+        "src": "claro-de-luz/croquis-01-el-vacio-en-el-centro.webp",
+        "label": "El vacío en el centro"
+      },
+      {
+        "src": "claro-de-luz/croquis-02-patio-porche-y-agua.webp",
+        "label": "El claro: patio, porche y agua"
+      },
+      {
+        "src": "claro-de-luz/croquis-03-entrar-despacio.webp",
+        "label": "Entrar despacio"
+      },
+      {
+        "src": "claro-de-luz/croquis-04-la-luz-de-cada-estancia.webp",
+        "label": "La luz de cada estancia"
       }
     ],
-    "sourceDocument": "images/CLARODELUZ/Casa Claro de Luz.pdf"
+    "sourceDocument": "Texto y croquis de OWN, 30-10-2026"
   },
   {
     "slug": "brisa-de-luz",

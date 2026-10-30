@@ -475,6 +475,34 @@
       "width": 1448,
       "height": 1086,
       "kind": "photo"
+    },
+    {
+      "source": "images/CLARODELUZ/croquis-01-el-vacio-en-el-centro.png",
+      "asset": "claro-de-luz/croquis-01-el-vacio-en-el-centro.webp",
+      "width": 1448,
+      "height": 1086,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/CLARODELUZ/croquis-02-patio-porche-y-agua.png",
+      "asset": "claro-de-luz/croquis-02-patio-porche-y-agua.webp",
+      "width": 1746,
+      "height": 901,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/CLARODELUZ/croquis-03-entrar-despacio.png",
+      "asset": "claro-de-luz/croquis-03-entrar-despacio.webp",
+      "width": 1536,
+      "height": 1024,
+      "kind": "diagram"
+    },
+    {
+      "source": "images/CLARODELUZ/croquis-04-la-luz-de-cada-estancia.png",
+      "asset": "claro-de-luz/croquis-04-la-luz-de-cada-estancia.webp",
+      "width": 1689,
+      "height": 931,
+      "kind": "diagram"
     }
   ],
   "videos": [

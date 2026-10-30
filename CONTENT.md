@@ -21,7 +21,8 @@ The original image files and PDFs remain in `images/`. Photos use quality 90;
 diagrams use lossless WebP, capped at 3200 px. Photographs are capped at 2400 px
 without upscaling. The import mapping is in `src/data/media-import.json`.
 Brisa de Luz includes the `OP 1` images after its main images, labeled as
-"Opción 1". The existing Claro de Luz sketch is used only on that project.
+"Opción 1". Claro de Luz uses four OWN sketches as diagram stages (the earlier
+sketch remains in `src/assets/projects/claro-de-luz/esbozo.webp`, unused).
 Missing diagrams are omitted; single diagrams do not show redundant arrows.
 Add more entries to `steps` to enable stage navigation automatically.
 
